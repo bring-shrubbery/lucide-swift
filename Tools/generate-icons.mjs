@@ -176,6 +176,20 @@ function toCamelCase(kebab) {
   return result
 }
 
+const LUCIDE_VERSION_FILE = path.join(REPO_ROOT, 'Sources', 'Lucide', 'LucideVersion.swift')
+
+async function writeLucideVersionFile(version) {
+  const body = `${GENERATED_HEADER(version)}public enum LucideVersion {
+    public static let lucide = "${version}"
+}
+`
+  await writeFile(LUCIDE_VERSION_FILE, body, 'utf8')
+}
+
+async function writeVersionJson(version) {
+  await writeFile(VERSION_FILE, JSON.stringify({ version }, null, 2) + '\n', 'utf8')
+}
+
 async function writeLucideIconFile(icons, version) {
   const cases = icons.map((i) => `    case ${toCamelCase(i.name)} = "${i.name}"`).join('\n')
   const switchArms = icons.map((i) => `        case .${toCamelCase(i.name)}: return ${i.structName}().path(in: rect)`).join('\n')
@@ -280,6 +294,15 @@ async function main() {
 
       await writeLucideIconFile(icons, target)
       stdout.write(`Wrote ${path.relative(REPO_ROOT, LUCIDE_ICON_FILE)}\n`)
+
+      await writeLucideVersionFile(target)
+      await writeVersionJson(target)
+      stdout.write(`Wrote ${path.relative(REPO_ROOT, LUCIDE_VERSION_FILE)}\n`)
+      stdout.write(`Wrote ${path.relative(REPO_ROOT, VERSION_FILE)}\n`)
+      if (process.env.GITHUB_OUTPUT) {
+        const { appendFile } = await import('node:fs/promises')
+        await appendFile(process.env.GITHUB_OUTPUT, `version=${target}\n`)
+      }
     } finally {
       await rm(workDir, { recursive: true, force: true })
     }
