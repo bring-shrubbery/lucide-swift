@@ -28,3 +28,12 @@ private let rect = CGRect(x: 0, y: 0, width: 24, height: 24)
     let path = LucideIcon.circle.makePath(in: rect)
     #expect(!path.isEmpty)
 }
+
+// Exercises an icon whose generated output calls Path.cwStrokedPath(_:)
+// from PathExtensions.swift. KeyRound is one of 8 such icons as of
+// lucide-static@1.16.0. If this fails after a regen, the helper extension
+// has drifted from what svg-to-swiftui-core emits.
+@Test func cwStrokedPathIconRenders() {
+    let path = LucideIcon.keyRound.makePath(in: rect)
+    #expect(!path.isEmpty)
+}
