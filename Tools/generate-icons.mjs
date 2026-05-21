@@ -73,9 +73,11 @@ async function installDependencies(lucideVersion) {
     'svg-to-swiftui-core@latest',
     '--no-save', '--silent',
   ], { cwd: dir })
+  const pkgRoot = path.join(dir, 'node_modules', 'lucide-static')
   return {
     workDir: dir,
-    iconsDir: path.join(dir, 'node_modules', 'lucide-static', 'icons'),
+    iconsDir: path.join(pkgRoot, 'icons'),
+    tagsPath: path.join(pkgRoot, 'tags.json'),
     corePath: path.join(dir, 'node_modules', 'svg-to-swiftui-core', 'dist', 'index.js'),
   }
 }
@@ -88,15 +90,42 @@ function toPascalCase(kebab) {
     .replace(/[^A-Za-z0-9]/g, '')
 }
 
-async function discoverIcons(iconsDir) {
+async function discoverIcons(iconsDir, tagsPath) {
+  // tags.json keys are the canonical Lucide icon names. The package also
+  // ships alias SVGs (e.g. axis-3-d.svg aliases axis-3d.svg); we ignore them
+  // to avoid case-insensitive filesystem collisions and duplicate Swift types.
+  const tagsRaw = await readFile(tagsPath, 'utf8')
+  const canonical = new Set(Object.keys(JSON.parse(tagsRaw)))
+
   const all = await readdir(iconsDir)
-  const svgs = all.filter((f) => f.endsWith('.svg')).sort()
-  return svgs.map((file) => ({
+  const svgs = all
+    .filter((f) => f.endsWith('.svg'))
+    .filter((f) => canonical.has(f.slice(0, -'.svg'.length)))
+    .sort()
+
+  const icons = svgs.map((file) => ({
     file,
     name: file.slice(0, -'.svg'.length),
     structName: toPascalCase(file.slice(0, -'.svg'.length)),
     path: path.join(iconsDir, file),
   }))
+
+  // Defensive: detect any remaining struct-name collisions (case-insensitive
+  // because target filesystems may be case-insensitive).
+  const byKey = new Map()
+  for (const icon of icons) {
+    const key = icon.structName.toLowerCase()
+    if (byKey.has(key)) {
+      const other = byKey.get(key)
+      throw new Error(
+        `struct name collision: ${icon.structName} (from ${icon.file}) ` +
+        `conflicts with ${other.structName} (from ${other.file})`
+      )
+    }
+    byKey.set(key, icon)
+  }
+
+  return icons
 }
 
 const GENERATED_HEADER = (version) =>
@@ -122,6 +151,43 @@ async function convertIcon(core, icon, version, outDir) {
 
   const finalPath = path.join(outDir, `${icon.structName}.swift`)
   await writeFile(finalPath, GENERATED_HEADER(version) + transformed, 'utf8')
+}
+
+const ICONS_OUT_DIR = path.join(REPO_ROOT, 'Sources', 'Lucide', 'Icons')
+
+async function convertAll(core, icons, version) {
+  const stagingDir = path.join(REPO_ROOT, '.tmp-icons')
+  await rm(stagingDir, { recursive: true, force: true })
+  await mkdir(stagingDir, { recursive: true })
+
+  stdout.write(`Converting ${icons.length} icons...\n`)
+  const failures = []
+  let done = 0
+  let lastLog = Date.now()
+
+  for (const icon of icons) {
+    try {
+      await convertIcon(core, icon, version, stagingDir)
+      done += 1
+    } catch (err) {
+      failures.push({ item: icon, error: err })
+    }
+    if (Date.now() - lastLog > 1000) {
+      stdout.write(`  ${done}/${icons.length}\n`)
+      lastLog = Date.now()
+    }
+  }
+
+  if (failures.length > 0) {
+    const names = failures.map((f) => `${f.item.structName}: ${f.error.message}`).join('\n  ')
+    throw new Error(`${failures.length} icon(s) failed to convert:\n  ${names}`)
+  }
+  stdout.write(`Converted ${done} icons.\n`)
+
+  await rm(ICONS_OUT_DIR, { recursive: true, force: true })
+  await mkdir(path.dirname(ICONS_OUT_DIR), { recursive: true })
+  const { rename } = await import('node:fs/promises')
+  await rename(stagingDir, ICONS_OUT_DIR)
 }
 
 const HELP = `Usage:
@@ -164,22 +230,13 @@ async function main() {
   if (args.mode === 'apply') {
     const target = args.version || await latestLucideStaticVersion()
     stdout.write(`Installing lucide-static@${target} + svg-to-swiftui-core@latest...\n`)
-    const { workDir, iconsDir, corePath } = await installDependencies(target)
+    const { workDir, iconsDir, tagsPath, corePath } = await installDependencies(target)
     try {
-      const icons = await discoverIcons(iconsDir)
+      const icons = await discoverIcons(iconsDir, tagsPath)
       stdout.write(`Discovered ${icons.length} icons.\n`)
 
       const core = await loadCore(corePath)
-
-      const sample = icons.find((i) => i.name === 'heart') ?? icons[0]
-      const smokeOut = path.join(workDir, 'smoke')
-      await mkdir(smokeOut, { recursive: true })
-      stdout.write(`Smoke-testing ${sample.structName}...\n`)
-      await convertIcon(core, sample, target, smokeOut)
-      const smokePath = path.join(smokeOut, `${sample.structName}.swift`)
-      const smokeContent = await readFile(smokePath, 'utf8')
-      stdout.write(`✓ ${sample.structName}.swift written (${smokeContent.length} bytes)\n`)
-      stdout.write(`First 4 lines:\n${smokeContent.split('\n').slice(0, 4).join('\n')}\n`)
+      await convertAll(core, icons, target)
     } finally {
       await rm(workDir, { recursive: true, force: true })
     }
