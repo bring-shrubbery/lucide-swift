@@ -9,6 +9,44 @@
 //   --help                  Print this help.
 
 import { argv, exit, stdout } from 'node:process'
+import { readFile } from 'node:fs/promises'
+import { request } from 'node:https'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const VERSION_FILE = path.join(REPO_ROOT, 'Tools', 'lucide-version.json')
+
+async function readPinnedVersion() {
+  const raw = await readFile(VERSION_FILE, 'utf8')
+  const parsed = JSON.parse(raw)
+  return parsed.version || null
+}
+
+function fetchJson(url) {
+  return new Promise((resolve, reject) => {
+    const req = request(url, { headers: { accept: 'application/json' } }, (res) => {
+      if (res.statusCode !== 200) {
+        reject(new Error(`GET ${url} → HTTP ${res.statusCode}`))
+        return
+      }
+      let body = ''
+      res.setEncoding('utf8')
+      res.on('data', (chunk) => { body += chunk })
+      res.on('end', () => {
+        try { resolve(JSON.parse(body)) } catch (e) { reject(e) }
+      })
+    })
+    req.on('error', reject)
+    req.end()
+  })
+}
+
+async function latestLucideStaticVersion() {
+  const data = await fetchJson('https://registry.npmjs.org/lucide-static/latest')
+  if (!data.version) throw new Error('npm registry did not return a version')
+  return data.version
+}
 
 const HELP = `Usage:
   node Tools/generate-icons.mjs --check
@@ -35,8 +73,17 @@ async function main() {
     exit(args.mode === null ? 2 : 0)
   }
   if (args.mode === 'check') {
-    // Implemented in Task 2.
-    throw new Error('--check not implemented yet')
+    const [latest, pinned] = await Promise.all([
+      latestLucideStaticVersion(),
+      readPinnedVersion(),
+    ])
+    stdout.write(`pinned: ${pinned || '(none)'}\nlatest: ${latest}\n`)
+    if (pinned === latest) {
+      stdout.write('up to date\n')
+      exit(0)
+    }
+    stdout.write('update available\n')
+    exit(1)
   }
   if (args.mode === 'apply') {
     // Implemented across Tasks 3–7.
