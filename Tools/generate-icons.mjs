@@ -154,6 +154,46 @@ async function convertIcon(core, icon, version, outDir) {
 }
 
 const ICONS_OUT_DIR = path.join(REPO_ROOT, 'Sources', 'Lucide', 'Icons')
+const LUCIDE_ICON_FILE = path.join(REPO_ROOT, 'Sources', 'Lucide', 'LucideIcon.swift')
+
+const SWIFT_RESERVED_WORDS = new Set([
+  'as', 'associativity', 'break', 'case', 'catch', 'class', 'continue', 'default',
+  'defer', 'deinit', 'do', 'else', 'enum', 'extension', 'fallthrough', 'false',
+  'fileprivate', 'final', 'for', 'func', 'guard', 'if', 'import', 'in', 'init',
+  'inout', 'internal', 'is', 'let', 'nil', 'open', 'operator', 'private',
+  'protocol', 'public', 'repeat', 'rethrows', 'return', 'self', 'static',
+  'struct', 'subscript', 'super', 'switch', 'throw', 'throws', 'true', 'try',
+  'typealias', 'var', 'where', 'while',
+])
+
+function toCamelCase(kebab) {
+  const parts = kebab.split('-')
+  let result = parts[0] + parts.slice(1)
+    .map((p) => p.length === 0 ? '' : p[0].toUpperCase() + p.slice(1))
+    .join('')
+  if (/^[0-9]/.test(result)) result = '_' + result
+  if (SWIFT_RESERVED_WORDS.has(result)) result = '`' + result + '`'
+  return result
+}
+
+async function writeLucideIconFile(icons, version) {
+  const cases = icons.map((i) => `    case ${toCamelCase(i.name)} = "${i.name}"`).join('\n')
+  const switchArms = icons.map((i) => `        case .${toCamelCase(i.name)}: return ${i.structName}().path(in: rect)`).join('\n')
+
+  const body = `${GENERATED_HEADER(version)}public enum LucideIcon: String, CaseIterable, Sendable {
+${cases}
+}
+
+extension LucideIcon {
+    func makePath(in rect: CGRect) -> Path {
+        switch self {
+${switchArms}
+        }
+    }
+}
+`
+  await writeFile(LUCIDE_ICON_FILE, body, 'utf8')
+}
 
 async function convertAll(core, icons, version) {
   const stagingDir = path.join(REPO_ROOT, '.tmp-icons')
@@ -237,6 +277,9 @@ async function main() {
 
       const core = await loadCore(corePath)
       await convertAll(core, icons, target)
+
+      await writeLucideIconFile(icons, target)
+      stdout.write(`Wrote ${path.relative(REPO_ROOT, LUCIDE_ICON_FILE)}\n`)
     } finally {
       await rm(workDir, { recursive: true, force: true })
     }
