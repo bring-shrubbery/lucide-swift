@@ -22,13 +22,15 @@ npm --version                                  # → 10.x or higher
 swift --version                                # → Swift 6.x
 ```
 
-Quick reality-check of the upstream tools (only needed once; you can skip if you've already verified):
+Quick reality-check of the upstream packages (only needed once; you can skip if you've already verified):
 
 ```bash
-npx --yes svg2swiftui --version                # should print 0.2.x or later
-curl -s https://registry.npmjs.org/lucide-static/latest | python3 -c "import json,sys; print(json.load(sys.stdin)['version'])"
-# should print the current Lucide version (e.g. 1.16.0)
+curl -s https://registry.npmjs.org/svg-to-swiftui-core/latest | python3 -c "import json,sys; d=json.load(sys.stdin); print('core:', d['version'])"
+curl -s https://registry.npmjs.org/lucide-static/latest | python3 -c "import json,sys; d=json.load(sys.stdin); print('lucide-static:', d['version'])"
+# should print the current versions for each
 ```
+
+Note: an earlier draft of this plan used the `svg2swiftui` CLI via `npx`. We switched to calling `svg-to-swiftui-core` programmatically — it's the same converter the CLI wraps, runs entirely in-process (no spawn overhead — ~10× faster across 1,711 icons), and avoids a publishing issue where the published CLI has a `workspace:*` dependency reference that npm can't resolve.
 
 ---
 
@@ -263,13 +265,18 @@ function runCommand(cmd, args, opts = {}) {
   })
 }
 
-async function installLucideStatic(version) {
+async function installDependencies(lucideVersion) {
   const dir = await mkdtemp(path.join(tmpdir(), 'lucide-swift-'))
   await runCommand('npm', ['init', '-y', '--silent'], { cwd: dir, stdio: 'ignore' })
-  await runCommand('npm', ['install', `lucide-static@${version}`, '--no-save', '--silent'], { cwd: dir })
+  await runCommand('npm', ['install',
+    `lucide-static@${lucideVersion}`,
+    'svg-to-swiftui-core@latest',
+    '--no-save', '--silent',
+  ], { cwd: dir })
   return {
     workDir: dir,
     iconsDir: path.join(dir, 'node_modules', 'lucide-static', 'icons'),
+    corePath: path.join(dir, 'node_modules', 'svg-to-swiftui-core', 'dist', 'index.js'),
   }
 }
 
@@ -300,13 +307,14 @@ Replace the `if (args.mode === 'apply')` block in `main()` with:
 ```javascript
   if (args.mode === 'apply') {
     const target = args.version || await latestLucideStaticVersion()
-    stdout.write(`Installing lucide-static@${target}...\n`)
-    const { workDir, iconsDir } = await installLucideStatic(target)
+    stdout.write(`Installing lucide-static@${target} + svg-to-swiftui-core@latest...\n`)
+    const { workDir, iconsDir, corePath } = await installDependencies(target)
     try {
       const icons = await discoverIcons(iconsDir)
       stdout.write(`Discovered ${icons.length} icons.\n`)
       // Conversion happens in Task 4–5.
       stdout.write(`First 3: ${icons.slice(0, 3).map((i) => i.structName).join(', ')}\n`)
+      stdout.write(`Core resolved at: ${corePath}\n`)
     } finally {
       await rm(workDir, { recursive: true, force: true })
     }
@@ -319,9 +327,10 @@ Replace the `if (args.mode === 'apply')` block in `main()` with:
 Run: `node Tools/generate-icons.mjs --apply`
 Expected output (numbers will vary slightly with Lucide releases):
 ```
-Installing lucide-static@1.16.0...
+Installing lucide-static@1.16.0 + svg-to-swiftui-core@latest...
 Discovered 1711 icons.
 First 3: AArrowDown, AArrowUp, ALargeSmall
+Core resolved at: /var/folders/.../node_modules/svg-to-swiftui-core/dist/index.js
 ```
 Exit code 0. Should take ~10–30 seconds depending on network.
 
@@ -339,35 +348,31 @@ git commit -m "Implement --apply install + icon discovery"
 **Files:**
 - Modify: `Tools/generate-icons.mjs`
 
-- [ ] **Step 1: Add the per-icon conversion function**
+- [ ] **Step 1: Add the per-icon conversion function (calls the core API)**
 
 Append to `Tools/generate-icons.mjs` (above `main()`):
 
 ```javascript
 import { mkdir, writeFile } from 'node:fs/promises'
+import { pathToFileURL } from 'node:url'
 
 const GENERATED_HEADER = (version) =>
   `// GENERATED FROM lucide-static@${version} — DO NOT EDIT\n` +
   `import SwiftUI\n\n`
 
-async function convertIcon(icon, version, outDir) {
-  const tmpOut = path.join(outDir, '.tmp', `${icon.structName}.swift`)
-  await mkdir(path.dirname(tmpOut), { recursive: true })
+async function loadCore(corePath) {
+  // Dynamic import via file:// URL so Node resolves it from the temp workdir.
+  return await import(pathToFileURL(corePath).href)
+}
 
-  await runCommand('npx', [
-    '--no-install',
-    'svg2swiftui',
-    icon.path,
-    tmpOut,
-    '--struct-name', icon.structName,
-  ])
+async function convertIcon(core, icon, version, outDir) {
+  const svgString = await readFile(icon.path, 'utf8')
 
-  const raw = await readFile(tmpOut, 'utf8')
+  const swiftCode = core.convert(svgString, { structName: icon.structName })
 
   // Post-process: make the generated struct internal and add the header + import.
-  const transformed = raw
+  const transformed = swiftCode
     .replace(/^\s*struct\s+/m, 'internal struct ')
-    // Trim leading whitespace before any leading blank line (cosmetic).
     .replace(/^\s+/, '')
 
   if (!transformed.includes(`internal struct ${icon.structName}: Shape`)) {
@@ -381,17 +386,20 @@ async function convertIcon(icon, version, outDir) {
 
 - [ ] **Step 2: Add a one-icon smoke test to the `--apply` flow**
 
-Replace the conversion-stub block in `main()`'s `if (args.mode === 'apply')` (the line that prints `First 3:` and below, but above the `finally`) with:
+Replace the conversion-stub block inside `main()`'s `if (args.mode === 'apply')` (the lines that print `First 3:` and `Core resolved at:`, above the `finally`) with:
 
 ```javascript
       const icons = await discoverIcons(iconsDir)
       stdout.write(`Discovered ${icons.length} icons.\n`)
 
+      const core = await loadCore(corePath)
+
       // Smoke-test one icon before the full run.
       const sample = icons.find((i) => i.name === 'heart') ?? icons[0]
       const smokeOut = path.join(workDir, 'smoke')
+      await mkdir(smokeOut, { recursive: true })
       stdout.write(`Smoke-testing ${sample.structName}...\n`)
-      await convertIcon(sample, target, smokeOut)
+      await convertIcon(core, sample, target, smokeOut)
       const smokePath = path.join(smokeOut, `${sample.structName}.swift`)
       const smokeContent = await readFile(smokePath, 'utf8')
       stdout.write(`✓ ${sample.structName}.swift written (${smokeContent.length} bytes)\n`)
@@ -406,7 +414,7 @@ Run: `node Tools/generate-icons.mjs --apply`
 
 Expected (abbreviated):
 ```
-Installing lucide-static@1.16.0...
+Installing lucide-static@1.16.0 + svg-to-swiftui-core@latest...
 Discovered 1711 icons.
 Smoke-testing Heart...
 ✓ Heart.swift written (NNN bytes)
@@ -417,85 +425,57 @@ import SwiftUI
 internal struct Heart: Shape {
 ```
 
-If the first 4 lines don't show `internal struct Heart: Shape`, stop and investigate — the regex in `convertIcon` may not match the CLI output. Run the CLI manually once to inspect (`npx --yes svg2swiftui /tmp/heart.svg /tmp/Heart.swift --struct-name Heart`) and adjust the `replace(/^\s*struct\s+/m, ...)` pattern accordingly.
+If the first 4 lines don't show `internal struct Heart: Shape`, stop and investigate — the regex in `convertIcon` may not match the core's actual output. Run a one-off probe to inspect what `convert` returns:
+```bash
+node -e "import('/tmp/core-probe/node_modules/svg-to-swiftui-core/dist/index.js').then(m => console.log(m.convert(require('node:fs').readFileSync('/tmp/heart.svg','utf8'), { structName: 'Heart' })))"
+```
+…and adjust the `replace(/^\s*struct\s+/m, ...)` pattern accordingly.
 
 - [ ] **Step 4: Commit**
 
 ```bash
 git add Tools/generate-icons.mjs
-git commit -m "Implement single-icon svg2swiftui conversion + post-processing"
+git commit -m "Implement single-icon conversion via svg-to-swiftui-core"
 ```
 
 ---
 
-## Task 5: Bulk convert all icons in parallel + atomic swap
+## Task 5: Bulk convert all icons + atomic swap
 
 **Files:**
 - Modify: `Tools/generate-icons.mjs`
 
-- [ ] **Step 1: Add a small concurrent-pool helper and the bulk converter**
+In-process core calls are fast enough (~5–10ms per icon) that sequential iteration handles all 1,711 icons in roughly 10–20 seconds. No spawn pool needed.
+
+- [ ] **Step 1: Add the bulk converter with atomic staging**
 
 Append to `Tools/generate-icons.mjs`:
 
 ```javascript
-import { cpus } from 'node:os'
-
 const ICONS_OUT_DIR = path.join(REPO_ROOT, 'Sources', 'Lucide', 'Icons')
 
-async function runPool(items, worker, concurrency) {
-  const iter = items[Symbol.iterator]()
-  const running = new Set()
-  const failures = []
-  let done = 0
-  let started = 0
-  const total = items.length
-
-  async function spawnNext() {
-    const next = iter.next()
-    if (next.done) return null
-    started += 1
-    const idx = started
-    const promise = worker(next.value, idx, total).then(
-      () => { done += 1 },
-      (err) => { failures.push({ item: next.value, error: err }) }
-    ).finally(() => running.delete(promise))
-    running.add(promise)
-    return promise
-  }
-
-  for (let i = 0; i < concurrency; i++) {
-    const p = await spawnNext()
-    if (!p) break
-  }
-  while (running.size > 0) {
-    await Promise.race(running)
-    while (running.size < concurrency) {
-      const p = await spawnNext()
-      if (!p) break
-    }
-  }
-  return { done, failures }
-}
-
-async function convertAll(icons, version) {
+async function convertAll(core, icons, version) {
   const stagingDir = path.join(REPO_ROOT, '.tmp-icons')
   await rm(stagingDir, { recursive: true, force: true })
   await mkdir(stagingDir, { recursive: true })
 
-  const concurrency = Math.max(2, cpus().length)
-  stdout.write(`Converting ${icons.length} icons (concurrency=${concurrency})...\n`)
-
+  stdout.write(`Converting ${icons.length} icons...\n`)
+  const failures = []
+  let done = 0
   let lastLog = Date.now()
-  const { done, failures } = await runPool(icons, async (icon, idx, total) => {
-    await convertIcon(icon, version, stagingDir)
+
+  for (const icon of icons) {
+    try {
+      await convertIcon(core, icon, version, stagingDir)
+      done += 1
+    } catch (err) {
+      failures.push({ item: icon, error: err })
+    }
     if (Date.now() - lastLog > 1000) {
-      stdout.write(`  ${idx}/${total} ${icon.structName}\n`)
+      stdout.write(`  ${done}/${icons.length}\n`)
       lastLog = Date.now()
     }
-  }, concurrency)
-
-  // Drop the .tmp sub-dir created by convertIcon.
-  await rm(path.join(stagingDir, '.tmp'), { recursive: true, force: true })
+  }
 
   if (failures.length > 0) {
     const names = failures.map((f) => `${f.item.structName}: ${f.error.message}`).join('\n  ')
@@ -503,10 +483,9 @@ async function convertAll(icons, version) {
   }
   stdout.write(`Converted ${done} icons.\n`)
 
-  // Atomic swap: replace Sources/Lucide/Icons/ wholesale.
+  // Atomic swap: replace Sources/Lucide/Icons/ wholesale via rename (same filesystem).
   await rm(ICONS_OUT_DIR, { recursive: true, force: true })
   await mkdir(path.dirname(ICONS_OUT_DIR), { recursive: true })
-  // Use fs.rename via promises — must be on the same filesystem; .tmp-icons is in repo root, so this is fine.
   const { rename } = await import('node:fs/promises')
   await rename(stagingDir, ICONS_OUT_DIR)
 }
@@ -514,12 +493,11 @@ async function convertAll(icons, version) {
 
 - [ ] **Step 2: Swap the smoke-test block in `main()` for the full convert**
 
-Replace the smoke-test block (the lines added in Task 4, Step 2) with:
+Replace the smoke-test block (the lines added in Task 4, Step 2 — from `const core = await loadCore(corePath)` through the smoke-test logging) with:
 
 ```javascript
-      const icons = await discoverIcons(iconsDir)
-      stdout.write(`Discovered ${icons.length} icons.\n`)
-      await convertAll(icons, target)
+      const core = await loadCore(corePath)
+      await convertAll(core, icons, target)
 ```
 
 - [ ] **Step 3: Run the full bulk conversion (this is the real bootstrap moment)**
@@ -528,16 +506,14 @@ Run: `node Tools/generate-icons.mjs --apply`
 
 Expected output:
 ```
-Installing lucide-static@1.16.0...
+Installing lucide-static@1.16.0 + svg-to-swiftui-core@latest...
 Discovered 1711 icons.
-Converting 1711 icons (concurrency=N)...
+Converting 1711 icons...
   <progress lines>...
 Converted 1711 icons.
 ```
 
-Expected runtime: roughly `1711 / concurrency * spawn_overhead_seconds`. On an 8-core machine, somewhere between 30 seconds and 3 minutes. If it takes much longer, check that `--no-install` is letting npx reuse the already-cached `svg2swiftui` rather than re-downloading per call.
-
-If failures are reported, the error names the offending icons. Investigate them individually with `npx --yes svg2swiftui <path> /tmp/out.swift` before re-running.
+Expected runtime: ~10–30 seconds end-to-end (most of it npm install). If failures are reported, the error names the offending icons. Investigate one with a one-off Node probe (see the diagnostic snippet at the end of Task 4 Step 3).
 
 - [ ] **Step 4: Spot-check a couple of generated files**
 

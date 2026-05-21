@@ -7,7 +7,7 @@ Stand up the pipeline that keeps `lucide-swift` in lock-step with upstream Lucid
 ## Constraints (carried from prior decisions)
 
 - Swift tools 6.0, iOS 17 / macOS 14, library product `Lucide`.
-- `svg2swiftui` runs via `npx svg2swiftui <input> <output> [--struct-name X]` — output is one `struct <Name>: Shape` with a single combined Path. Stroke-based Lucide icons must be rendered with `.stroke(...)`, not `.fill(...)`.
+- Conversion uses the `svg-to-swiftui-core` npm package (the JS API underneath bring-shrubbery's `svg2swiftui` CLI). The core exposes a single function `convert(rawSVGString, { structName, precision?, indentationSize?, usageCommentPrefix? }) → string` that returns one `struct <Name>: Shape` with a single combined Path. Stroke-based Lucide icons must be rendered with `.stroke(...)`, not `.fill(...)`. (Originally planned to spawn the CLI per icon, but the published CLI has a broken workspace-protocol dependency, and 1,711 in-process core calls is ~10× faster than 1,711 npx spawns anyway.)
 - Source SVGs come from the npm package `lucide-static`, which mirrors the `lucide-icons/lucide` version tag exactly (currently 1.16.0, ~1,711 SVG icons).
 - Package version mirrors Lucide version exactly: `lucide-swift 1.16.0` = icons from `lucide-static@1.16.0`.
 - Auto-PR opens for human review; tag/release happens separately after merge.
@@ -68,11 +68,11 @@ Node ESM script (no transpile). Single file. Modes:
 - `--check` — prints the latest `lucide-static` version from the npm registry alongside the current pinned version in `Tools/lucide-version.json`. Exits `0` if up to date, `1` if a newer version exists. Used by CI to decide whether to proceed.
 - `--apply` — does the regeneration. Optional `--version X.Y.Z` overrides the target (defaults to `latest`). Steps:
   1. Resolve target version from npm registry (or `--version`).
-  2. `npm install lucide-static@<ver> --no-save --silent` into a temp working dir.
-  3. Read every `*.svg` from `node_modules/lucide-static/icons/`.
-  4. For each SVG, invoke `npx --no-install svg2swiftui <tmp-in> <tmp-out> --struct-name <PascalCase>` (input/output via temp files; CLI requires file paths, not stdin/stdout).
-  5. Post-process the generated `.swift` output: prefix the `struct` declaration with `internal` and strip the trailing newline noise into a consistent form.
-  6. Write to `Sources/Lucide/Icons/<PascalCase>.swift` with a generated-file header (`// GENERATED FROM lucide-static@<ver> — DO NOT EDIT`).
+  2. In a temp working dir, `npm install lucide-static@<ver> svg-to-swiftui-core@latest --no-save --silent`.
+  3. Read every `*.svg` from `<workdir>/node_modules/lucide-static/icons/`.
+  4. For each SVG, import `convert` from `svg-to-swiftui-core` (resolved against the temp workdir) and call `convert(svgString, { structName: <PascalCase> })`. Pure in-process, no subprocess spawn.
+  5. Post-process the returned Swift string: prefix the `struct` declaration with `internal`, normalise leading whitespace, prepend `// GENERATED FROM lucide-static@<ver> — DO NOT EDIT\nimport SwiftUI\n\n`.
+  6. Write to `Sources/Lucide/Icons/<PascalCase>.swift`.
   7. After all icons succeed, regenerate `Sources/Lucide/LucideIcon.swift` (the enum + `makePath` switch) and `Sources/Lucide/LucideVersion.swift` (the version constant).
   8. Write `Tools/lucide-version.json` with the new version.
   9. Print a one-line summary (`updated to X.Y.Z, N icons, ±Δ vs previous`) and the resolved version on stdout. Also write `version=X.Y.Z` to `$GITHUB_OUTPUT` if the env var is set, so workflows can reference it.
