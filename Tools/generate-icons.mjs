@@ -9,9 +9,11 @@
 //   --help                  Print this help.
 
 import { argv, exit, stdout } from 'node:process'
-import { readFile } from 'node:fs/promises'
+import { readFile, mkdtemp, readdir, rm } from 'node:fs/promises'
 import { request } from 'node:https'
 import { fileURLToPath } from 'node:url'
+import { spawn } from 'node:child_process'
+import { tmpdir } from 'node:os'
 import path from 'node:path'
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -46,6 +48,55 @@ async function latestLucideStaticVersion() {
   const data = await fetchJson('https://registry.npmjs.org/lucide-static/latest')
   if (!data.version) throw new Error('npm registry did not return a version')
   return data.version
+}
+
+function runCommand(cmd, args, opts = {}) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, args, { stdio: ['ignore', 'pipe', 'pipe'], ...opts })
+    let stdoutBuf = ''
+    let stderrBuf = ''
+    child.stdout?.on('data', (d) => { stdoutBuf += d })
+    child.stderr?.on('data', (d) => { stderrBuf += d })
+    child.on('error', reject)
+    child.on('close', (code) => {
+      if (code === 0) resolve({ stdout: stdoutBuf, stderr: stderrBuf })
+      else reject(new Error(`${cmd} ${args.join(' ')} exited ${code}\n${stderrBuf}`))
+    })
+  })
+}
+
+async function installDependencies(lucideVersion) {
+  const dir = await mkdtemp(path.join(tmpdir(), 'lucide-swift-'))
+  await runCommand('npm', ['init', '-y', '--silent'], { cwd: dir, stdio: 'ignore' })
+  await runCommand('npm', ['install',
+    `lucide-static@${lucideVersion}`,
+    'svg-to-swiftui-core@latest',
+    '--no-save', '--silent',
+  ], { cwd: dir })
+  return {
+    workDir: dir,
+    iconsDir: path.join(dir, 'node_modules', 'lucide-static', 'icons'),
+    corePath: path.join(dir, 'node_modules', 'svg-to-swiftui-core', 'dist', 'index.js'),
+  }
+}
+
+function toPascalCase(kebab) {
+  return kebab
+    .split('-')
+    .map((part) => part.length === 0 ? '' : part[0].toUpperCase() + part.slice(1))
+    .join('')
+    .replace(/[^A-Za-z0-9]/g, '')
+}
+
+async function discoverIcons(iconsDir) {
+  const all = await readdir(iconsDir)
+  const svgs = all.filter((f) => f.endsWith('.svg')).sort()
+  return svgs.map((file) => ({
+    file,
+    name: file.slice(0, -'.svg'.length),
+    structName: toPascalCase(file.slice(0, -'.svg'.length)),
+    path: path.join(iconsDir, file),
+  }))
 }
 
 const HELP = `Usage:
@@ -86,8 +137,18 @@ async function main() {
     exit(1)
   }
   if (args.mode === 'apply') {
-    // Implemented across Tasks 3–7.
-    throw new Error('--apply not implemented yet')
+    const target = args.version || await latestLucideStaticVersion()
+    stdout.write(`Installing lucide-static@${target} + svg-to-swiftui-core@latest...\n`)
+    const { workDir, iconsDir, corePath } = await installDependencies(target)
+    try {
+      const icons = await discoverIcons(iconsDir)
+      stdout.write(`Discovered ${icons.length} icons.\n`)
+      stdout.write(`First 3: ${icons.slice(0, 3).map((i) => i.structName).join(', ')}\n`)
+      stdout.write(`Core resolved at: ${corePath}\n`)
+    } finally {
+      await rm(workDir, { recursive: true, force: true })
+    }
+    exit(0)
   }
 }
 
