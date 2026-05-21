@@ -9,9 +9,9 @@
 //   --help                  Print this help.
 
 import { argv, exit, stdout } from 'node:process'
-import { readFile, mkdtemp, readdir, rm } from 'node:fs/promises'
+import { readFile, writeFile, mkdir, mkdtemp, readdir, rm } from 'node:fs/promises'
 import { request } from 'node:https'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawn } from 'node:child_process'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
@@ -99,6 +99,31 @@ async function discoverIcons(iconsDir) {
   }))
 }
 
+const GENERATED_HEADER = (version) =>
+  `// GENERATED FROM lucide-static@${version} — DO NOT EDIT\n` +
+  `import SwiftUI\n\n`
+
+async function loadCore(corePath) {
+  return await import(pathToFileURL(corePath).href)
+}
+
+async function convertIcon(core, icon, version, outDir) {
+  const svgString = await readFile(icon.path, 'utf8')
+
+  const swiftCode = core.convert(svgString, { structName: icon.structName })
+
+  const transformed = swiftCode
+    .replace(/^\s*struct\s+/m, 'internal struct ')
+    .replace(/^\s+/, '')
+
+  if (!transformed.includes(`internal struct ${icon.structName}: Shape`)) {
+    throw new Error(`post-processing failed for ${icon.structName}: did not find expected struct declaration`)
+  }
+
+  const finalPath = path.join(outDir, `${icon.structName}.swift`)
+  await writeFile(finalPath, GENERATED_HEADER(version) + transformed, 'utf8')
+}
+
 const HELP = `Usage:
   node Tools/generate-icons.mjs --check
   node Tools/generate-icons.mjs --apply [--version <semver>]
@@ -143,8 +168,18 @@ async function main() {
     try {
       const icons = await discoverIcons(iconsDir)
       stdout.write(`Discovered ${icons.length} icons.\n`)
-      stdout.write(`First 3: ${icons.slice(0, 3).map((i) => i.structName).join(', ')}\n`)
-      stdout.write(`Core resolved at: ${corePath}\n`)
+
+      const core = await loadCore(corePath)
+
+      const sample = icons.find((i) => i.name === 'heart') ?? icons[0]
+      const smokeOut = path.join(workDir, 'smoke')
+      await mkdir(smokeOut, { recursive: true })
+      stdout.write(`Smoke-testing ${sample.structName}...\n`)
+      await convertIcon(core, sample, target, smokeOut)
+      const smokePath = path.join(smokeOut, `${sample.structName}.swift`)
+      const smokeContent = await readFile(smokePath, 'utf8')
+      stdout.write(`✓ ${sample.structName}.swift written (${smokeContent.length} bytes)\n`)
+      stdout.write(`First 4 lines:\n${smokeContent.split('\n').slice(0, 4).join('\n')}\n`)
     } finally {
       await rm(workDir, { recursive: true, force: true })
     }
