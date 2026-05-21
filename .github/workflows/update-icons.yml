@@ -1,0 +1,49 @@
+name: Update Lucide
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'lucide-static version (defaults to latest)'
+        required: false
+        type: string
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check for new version
+        id: check
+        run: node Tools/generate-icons.mjs --check
+        continue-on-error: true
+
+      - name: Apply update
+        id: apply
+        if: steps.check.outcome == 'failure' || inputs.version != ''
+        run: node Tools/generate-icons.mjs --apply ${{ inputs.version && format('--version {0}', inputs.version) || '' }}
+
+      - name: Open pull request
+        if: steps.check.outcome == 'failure' || inputs.version != ''
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: auto/lucide-update
+          commit-message: 'Update Lucide to ${{ steps.apply.outputs.version }}'
+          title: 'Update Lucide to ${{ steps.apply.outputs.version }}'
+          body: |
+            Automated update from `update-icons.yml`.
+
+            See `Tools/lucide-version.json` for the new pinned version.
+          add-paths: |
+            Sources/Lucide/
+            Tools/lucide-version.json
