@@ -1,0 +1,57 @@
+// GENERATED FROM lucide-static@1.16.0 — DO NOT EDIT
+import SwiftUI
+
+internal struct HandFist: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        var strokePath2 = Path()
+        strokePath2.move(to: CGPoint(x: 0.5014583333*width, y: 0.7088333333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3764583333*width, y: 0.5838333333*height), control1: CGPoint(x: 0.5014583333*width, y: 0.6397977396*height), control2: CGPoint(x: 0.4454939271*width, y: 0.5838333333*height))
+        strokePath2.addLine(to: CGPoint(x: 0.3635*width, y: 0.58375*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3359271382*width, y: 0.565152566*height), control1: CGPoint(x: 0.3513994665*width, y: 0.5836790532*height), control2: CGPoint(x: 0.3405262469*width, y: 0.5763452485*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3424583333*width, y: 0.5325416667*height), control1: CGPoint(x: 0.3313280294*width, y: 0.5539598834*height), control2: CGPoint(x: 0.3339035734*width, y: 0.5410999391*height))
+        strokePath2.addLine(to: CGPoint(x: 0.39225*width, y: 0.48275*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.4511666667*width, y: 0.4583333333*height), control1: CGPoint(x: 0.4078743943*width, y: 0.4671208854*height), control2: CGPoint(x: 0.4290670989*width, y: 0.4583380531*height))
+        strokePath2.addLine(to: CGPoint(x: 0.5*width, y: 0.4583333333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.5833333333*width, y: 0.375*height), control1: CGPoint(x: 0.5460237292*width, y: 0.4583333333*height), control2: CGPoint(x: 0.5833333333*width, y: 0.4210237292*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.5*width, y: 0.2916666667*height), control1: CGPoint(x: 0.5833333333*width, y: 0.3289762708*height), control2: CGPoint(x: 0.5460237292*width, y: 0.2916666667*height))
+        strokePath2.addLine(to: CGPoint(x: 0.385125*width, y: 0.2916666667*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.2967083333*width, y: 0.3282916667*height), control1: CGPoint(x: 0.3519612095*width, y: 0.2916626943*height), control2: CGPoint(x: 0.3201551331*width, y: 0.3048377844*height))
+        strokePath2.addLine(to: CGPoint(x: 0.1839166667*width, y: 0.4410833333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.125*width, y: 0.5833333333*height), control1: CGPoint(x: 0.1461988049*width, y: 0.4788160909*height), control2: CGPoint(x: 0.1250071955*width, y: 0.5299816882*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.4583333333*width, y: 0.9166666667*height), control1: CGPoint(x: 0.125*width, y: 0.7674282499*height), control2: CGPoint(x: 0.2742384167*width, y: 0.9166666667*height))
+        strokePath2.addLine(to: CGPoint(x: 0.5416666667*width, y: 0.9166666667*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.875*width, y: 0.5833333333*height), control1: CGPoint(x: 0.7257615833*width, y: 0.9166666667*height), control2: CGPoint(x: 0.875*width, y: 0.7674282499*height))
+        strokePath2.addLine(to: CGPoint(x: 0.875*width, y: 0.2916666667*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.7916666667*width, y: 0.2083333333*height), control1: CGPoint(x: 0.875*width, y: 0.2456429375*height), control2: CGPoint(x: 0.8376903958*width, y: 0.2083333333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.7083333333*width, y: 0.2916666667*height), control1: CGPoint(x: 0.7456429375*width, y: 0.2083333333*height), control2: CGPoint(x: 0.7083333333*width, y: 0.2456429375*height))
+        strokePath2.addLine(to: CGPoint(x: 0.7083333333*width, y: 0.375*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.7916666667*width, y: 0.4583333333*height), control1: CGPoint(x: 0.7083333333*width, y: 0.4210237292*height), control2: CGPoint(x: 0.7456429375*width, y: 0.4583333333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.875*width, y: 0.375*height), control1: CGPoint(x: 0.8376903958*width, y: 0.4583333333*height), control2: CGPoint(x: 0.875*width, y: 0.4210237292*height))
+        path.addPath(strokePath2.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
+        var strokePath4 = Path()
+        strokePath4.move(to: CGPoint(x: 0.5786666667*width, y: 0.4025833333*height))
+        strokePath4.addCurve(to: CGPoint(x: 0.6642573647*width, y: 0.4068253122*height), control1: CGPoint(x: 0.604228506*width, y: 0.4196823301*height), control2: CGPoint(x: 0.6371300524*width, y: 0.4213129707*height))
+        strokePath4.addCurve(to: CGPoint(x: 0.7083333333*width, y: 0.3333333333*height), control1: CGPoint(x: 0.691384677*width, y: 0.3923376538*height), control2: CGPoint(x: 0.7083277276*width, y: 0.3640869232*height))
+        strokePath4.addLine(to: CGPoint(x: 0.7083333333*width, y: 0.2083333333*height))
+        strokePath4.addCurve(to: CGPoint(x: 0.625*width, y: 0.125*height), control1: CGPoint(x: 0.7083333333*width, y: 0.1623096042*height), control2: CGPoint(x: 0.6710237292*width, y: 0.125*height))
+        strokePath4.addCurve(to: CGPoint(x: 0.5416666667*width, y: 0.2083333333*height), control1: CGPoint(x: 0.5789762708*width, y: 0.125*height), control2: CGPoint(x: 0.5416666667*width, y: 0.1623096042*height))
+        path.addPath(strokePath4.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
+        var strokePath6 = Path()
+        strokePath6.move(to: CGPoint(x: 0.375*width, y: 0.2083333333*height))
+        strokePath6.addCurve(to: CGPoint(x: 0.2916666667*width, y: 0.125*height), control1: CGPoint(x: 0.375*width, y: 0.1623096042*height), control2: CGPoint(x: 0.3376903958*width, y: 0.125*height))
+        strokePath6.addCurve(to: CGPoint(x: 0.2083333333*width, y: 0.2083333333*height), control1: CGPoint(x: 0.2456429375*width, y: 0.125*height), control2: CGPoint(x: 0.2083333333*width, y: 0.1623096042*height))
+        strokePath6.addLine(to: CGPoint(x: 0.2083333333*width, y: 0.4166666667*height))
+        path.addPath(strokePath6.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
+        var strokePath8 = Path()
+        strokePath8.move(to: CGPoint(x: 0.375*width, y: 0.2916666667*height))
+        strokePath8.addLine(to: CGPoint(x: 0.375*width, y: 0.1666666667*height))
+        strokePath8.addCurve(to: CGPoint(x: 0.4583333333*width, y: 0.0833333333*height), control1: CGPoint(x: 0.375*width, y: 0.1206429375*height), control2: CGPoint(x: 0.4123096042*width, y: 0.0833333333*height))
+        strokePath8.addCurve(to: CGPoint(x: 0.5416666667*width, y: 0.1666666667*height), control1: CGPoint(x: 0.5043570625*width, y: 0.0833333333*height), control2: CGPoint(x: 0.5416666667*width, y: 0.1206429375*height))
+        strokePath8.addLine(to: CGPoint(x: 0.5416666667*width, y: 0.3028333333*height))
+        path.addPath(strokePath8.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
+        return path
+    }
+}

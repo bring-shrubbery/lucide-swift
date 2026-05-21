@@ -1,0 +1,58 @@
+// GENERATED FROM lucide-static@1.16.0 — DO NOT EDIT
+import SwiftUI
+
+internal struct Puzzle: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let width = rect.size.width
+        let height = rect.size.height
+        var strokePath2 = Path()
+        strokePath2.move(to: CGPoint(x: 0.64125*width, y: 0.1829166667*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.6820418834*width, y: 0.1935698609*height), control1: CGPoint(x: 0.6519149913*width, y: 0.1935924234*height), control2: CGPoint(x: 0.6675186828*width, y: 0.1976674781*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.71125*width, y: 0.1631666667*height), control1: CGPoint(x: 0.6965650839*width, y: 0.1894722436*height), control2: CGPoint(x: 0.7077377586*width, y: 0.1778424284*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.8207243329*width, y: 0.0836543443*height), control1: CGPoint(x: 0.7232188254*width, y: 0.113344792*height), control2: CGPoint(x: 0.7696435668*width, y: 0.0796260297*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.9163819673*width, y: 0.1793437164*height), control1: CGPoint(x: 0.8718050989*width, y: 0.0876826588*height), control2: CGPoint(x: 0.9123705979*width, y: 0.1282616169*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.8368333333*width, y: 0.2887916667*height), control1: CGPoint(x: 0.9203933366*width, y: 0.230425816*height), control2: CGPoint(x: 0.8866591757*width, y: 0.2768393694*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.8064301391*width, y: 0.3179997833*height), control1: CGPoint(x: 0.8221575716*width, y: 0.2923039081*height), control2: CGPoint(x: 0.8105277564*width, y: 0.3034765828*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.8170833333*width, y: 0.3587916667*height), control1: CGPoint(x: 0.8023325219*width, y: 0.3325229838*height), control2: CGPoint(x: 0.8064075766*width, y: 0.3481266754*height))
+        strokePath2.addLine(to: CGPoint(x: 0.8872083333*width, y: 0.428875*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.9166703526*width, y: 0.5*height), control1: CGPoint(x: 0.9060724948*width, y: 0.4477381839*height), control2: CGPoint(x: 0.9166703526*width, y: 0.4733227382*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.8872083333*width, y: 0.571125*height), control1: CGPoint(x: 0.9166703526*width, y: 0.5266772618*height), control2: CGPoint(x: 0.9060724948*width, y: 0.5522618161*height))
+        strokePath2.addLine(to: CGPoint(x: 0.8170833333*width, y: 0.64125*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.77629145*width, y: 0.6519031942*height), control1: CGPoint(x: 0.8064183421*width, y: 0.6519257568*height), control2: CGPoint(x: 0.7908146505*width, y: 0.6560008115*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.7470833333*width, y: 0.6215*height), control1: CGPoint(x: 0.7617682495*width, y: 0.6478055769*height), control2: CGPoint(x: 0.7505955747*width, y: 0.6361757617*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.6376090005*width, y: 0.5419876776*height), control1: CGPoint(x: 0.735114508*width, y: 0.5716781253*height), control2: CGPoint(x: 0.6886897665*width, y: 0.537959363*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.541951366*width, y: 0.6376770498*height), control1: CGPoint(x: 0.5865282344*width, y: 0.5460159922*height), control2: CGPoint(x: 0.5459627354*width, y: 0.5865949502*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.6215*width, y: 0.747125*height), control1: CGPoint(x: 0.5379399967*width, y: 0.6887591493*height), control2: CGPoint(x: 0.5716741577*width, y: 0.7351727027*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.6519031942*width, y: 0.7763331166*height), control1: CGPoint(x: 0.6361757617*width, y: 0.7506372414*height), control2: CGPoint(x: 0.6478055769*width, y: 0.7618099161*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.64125*width, y: 0.817125*height), control1: CGPoint(x: 0.6560008115*width, y: 0.7908563172*height), control2: CGPoint(x: 0.6519257568*width, y: 0.8064600087*height))
+        strokePath2.addLine(to: CGPoint(x: 0.571125*width, y: 0.8872083333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.5*width, y: 0.9166703526*height), control1: CGPoint(x: 0.5522618161*width, y: 0.9060724948*height), control2: CGPoint(x: 0.5266772618*width, y: 0.9166703526*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.428875*width, y: 0.8872083333*height), control1: CGPoint(x: 0.4733227382*width, y: 0.9166703526*height), control2: CGPoint(x: 0.4477381839*width, y: 0.9060724948*height))
+        strokePath2.addLine(to: CGPoint(x: 0.35875*width, y: 0.8170833333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3179581166*width, y: 0.8064301391*height), control1: CGPoint(x: 0.3480850087*width, y: 0.8064075766*height), control2: CGPoint(x: 0.3324813172*width, y: 0.8023325219*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.28875*width, y: 0.8368333333*height), control1: CGPoint(x: 0.3034349161*width, y: 0.8105277564*height), control2: CGPoint(x: 0.2922622414*width, y: 0.8221575716*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.1792756671*width, y: 0.9163456557*height), control1: CGPoint(x: 0.2767811746*width, y: 0.886655208*height), control2: CGPoint(x: 0.2303564332*width, y: 0.9203739703*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.0836180327*width, y: 0.8206562836*height), control1: CGPoint(x: 0.1281949011*width, y: 0.9123173412*height), control2: CGPoint(x: 0.0876294021*width, y: 0.8717383831*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.1631666667*width, y: 0.7112083333*height), control1: CGPoint(x: 0.0796066634*width, y: 0.769574184*height), control2: CGPoint(x: 0.1133408243*width, y: 0.7231606306*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.1935698609*width, y: 0.6820002167*height), control1: CGPoint(x: 0.1778424284*width, y: 0.7076960919*height), control2: CGPoint(x: 0.1894722436*width, y: 0.6965234172*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.1829166667*width, y: 0.6412083333*height), control1: CGPoint(x: 0.1976674781*width, y: 0.6674770162*height), control2: CGPoint(x: 0.1935924234*width, y: 0.6518733246*height))
+        strokePath2.addLine(to: CGPoint(x: 0.1127916667*width, y: 0.571125*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.0833296474*width, y: 0.5*height), control1: CGPoint(x: 0.0939275052*width, y: 0.5522618161*height), control2: CGPoint(x: 0.0833296474*width, y: 0.5266772618*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.1127916667*width, y: 0.428875*height), control1: CGPoint(x: 0.0833296474*width, y: 0.4733227382*height), control2: CGPoint(x: 0.0939275052*width, y: 0.4477381839*height))
+        strokePath2.addLine(to: CGPoint(x: 0.1829166667*width, y: 0.35875*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.22370855*width, y: 0.3480968058*height), control1: CGPoint(x: 0.1935816579*width, y: 0.3480742432*height), control2: CGPoint(x: 0.2091853495*width, y: 0.3439991885*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.2529166667*width, y: 0.3785*height), control1: CGPoint(x: 0.2382317505*width, y: 0.3521944231*height), control2: CGPoint(x: 0.2494044253*width, y: 0.3638242383*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3623909995*width, y: 0.4580123224*height), control1: CGPoint(x: 0.264885492*width, y: 0.4283218747*height), control2: CGPoint(x: 0.3113102335*width, y: 0.462040637*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.458048634*width, y: 0.3623229502*height), control1: CGPoint(x: 0.4134717656*width, y: 0.4539840078*height), control2: CGPoint(x: 0.4540372646*width, y: 0.4134050498*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3785*width, y: 0.252875*height), control1: CGPoint(x: 0.4620600033*width, y: 0.3112408507*height), control2: CGPoint(x: 0.4283258423*width, y: 0.2648272973*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.3480968058*width, y: 0.2236668834*height), control1: CGPoint(x: 0.3638242383*width, y: 0.2493627586*height), control2: CGPoint(x: 0.3521944231*width, y: 0.2381900839*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.35875*width, y: 0.182875*height), control1: CGPoint(x: 0.3439991885*width, y: 0.2091436828*height), control2: CGPoint(x: 0.3480742432*width, y: 0.1935399913*height))
+        strokePath2.addLine(to: CGPoint(x: 0.428875*width, y: 0.1127916667*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.5*width, y: 0.0833296474*height), control1: CGPoint(x: 0.4477381839*width, y: 0.0939275052*height), control2: CGPoint(x: 0.4733227382*width, y: 0.0833296474*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.571125*width, y: 0.1127916667*height), control1: CGPoint(x: 0.5266772618*width, y: 0.0833296474*height), control2: CGPoint(x: 0.5522618161*width, y: 0.0939275052*height))
+        strokePath2.closeSubpath()
+        path.addPath(strokePath2.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
+        return path
+    }
+}
