@@ -77,6 +77,13 @@ if let icon = Lucide("sun") {
 
 The package version mirrors the Lucide release it bundles — `lucide-swift 1.16.0` ships icons from `lucide@1.16.0`. The bundled version is also available at runtime as `LucideVersion.lucide`.
 
+## Support
+
+If `lucide-swift` is useful to you, two ways to say thanks:
+
+- Star the repo on GitHub: [bring-shrubbery/lucide-swift](https://github.com/bring-shrubbery/lucide-swift)
+- Follow the author on X for updates: [@bringshrubberyy](https://x.com/bringshrubberyy)
+
 ## Credits
 
 - [**Lucide**](https://lucide.dev) — the icon set itself. Beautiful, consistent, community-maintained, licensed ISC. This package would not exist without the work of the Lucide team and its contributors.
