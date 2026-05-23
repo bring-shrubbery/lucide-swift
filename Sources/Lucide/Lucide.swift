@@ -10,6 +10,13 @@ public struct Lucide: SwiftUI.View {
         self.icon = icon
     }
 
+    /// Look up an icon by its kebab-case Lucide name (e.g. `"heart"`,
+    /// `"a-arrow-down"`). Returns `nil` if no icon matches.
+    public init?(_ name: String) {
+        guard let icon = LucideIcon(rawValue: name) else { return nil }
+        self.init(icon)
+    }
+
     public var body: some SwiftUI.View {
         IconShape(icon: icon)
             .stroke(

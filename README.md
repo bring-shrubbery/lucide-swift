@@ -51,6 +51,18 @@ Pick any icon from [lucide.dev/icons](https://lucide.dev/icons) — its kebab-ca
 Lucide(.arrowUpRight).lineWidth(1.5)
 ```
 
+You can also look an icon up by its Lucide name as a string. The init is failable so a typo or missing name returns `nil`:
+
+```swift
+if let icon = Lucide("sun") {
+    icon.foregroundStyle(.yellow)
+}
+
+// Or with a fallback:
+(Lucide(name) ?? Lucide(.circleQuestionMark))
+    .frame(width: 24, height: 24)
+```
+
 The package version mirrors the Lucide release it bundles — `lucide-swift 1.16.0` ships icons from `lucide@1.16.0`. The bundled version is also available at runtime as `LucideVersion.lucide`.
 
 ## License

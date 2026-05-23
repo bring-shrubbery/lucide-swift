@@ -24,3 +24,13 @@ import SwiftUI
     let path = LucideIcon.image.makePath(in: CGRect(x: 0, y: 0, width: 24, height: 24))
     #expect(!path.isEmpty)
 }
+
+@Test func stringInitResolvesKnownName() {
+    #expect(Lucide("heart") != nil)
+    #expect(Lucide("a-arrow-down") != nil)
+}
+
+@Test func stringInitReturnsNilForUnknownName() {
+    #expect(Lucide("definitely-not-a-real-icon") == nil)
+    #expect(Lucide("") == nil)
+}

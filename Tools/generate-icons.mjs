@@ -82,7 +82,7 @@ async function installDependencies(lucideVersion) {
   }
 }
 
-function toPascalCase(kebab) {
+export function toPascalCase(kebab) {
   return kebab
     .split('-')
     .map((part) => part.length === 0 ? '' : part[0].toUpperCase() + part.slice(1))
@@ -166,7 +166,7 @@ const SWIFT_RESERVED_WORDS = new Set([
   'typealias', 'var', 'where', 'while',
 ])
 
-function toCamelCase(kebab) {
+export function toCamelCase(kebab) {
   const parts = kebab.split('-')
   let result = parts[0] + parts.slice(1)
     .map((p) => p.length === 0 ? '' : p[0].toUpperCase() + p.slice(1))
@@ -249,7 +249,7 @@ const HELP = `Usage:
   node Tools/generate-icons.mjs --apply [--version <semver>]
   node Tools/generate-icons.mjs --help`
 
-function parseArgs(args) {
+export function parseArgs(args) {
   const out = { mode: null, version: null }
   for (let i = 0; i < args.length; i++) {
     const a = args[i]
@@ -310,7 +310,11 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  process.stderr.write(`Error: ${err.message}\n`)
-  exit(1)
-})
+// Only run main when invoked directly (e.g. `node Tools/generate-icons.mjs`),
+// not when imported by a test module.
+if (import.meta.url === pathToFileURL(argv[1] || '').href) {
+  main().catch((err) => {
+    process.stderr.write(`Error: ${err.message}\n`)
+    exit(1)
+  })
+}
