@@ -5,20 +5,21 @@ import Foundation
 import ImageIO
 @testable import Lucide
 
-// Pixel snapshot tests for a representative subset of icons. Renders each
-// icon's Path through CoreGraphics with the same stroke style the Lucide
-// View applies (lineWidth 2, round cap, round join, black on white) and
-// compares the resulting PNG bytes against a committed baseline under
-// __Snapshots__/.
+// Pixel snapshot tests for every Lucide icon. Renders each icon's Path
+// through CoreGraphics with the same stroke style the Lucide View applies
+// (lineWidth 2, round cap, round join, black on white) and compares the
+// resulting PNG bytes against a committed baseline under __Snapshots__/.
 //
-// On first run (or when the SNAPSHOT_RECORD env var is set), missing
-// baselines are written and the test fails with a clear message so the
-// developer reviews and re-runs.
+// Recording mode: set SNAPSHOT_RECORD=1 in the environment to (re)write
+// every baseline. Recording is silent — no test failures — so it can be
+// used as a normal pipeline step after generator regeneration.
 //
-// Snapshots are intentionally exact-match. If a future svg-to-swiftui-core
-// release changes its output for any of these icons — or if PathExtensions
-// drifts from what the core emits — these tests will fail loudly. A regen
-// + visual review of the new PNGs is the expected response.
+// Compare mode (default): a missing baseline records a clear Issue and
+// fails the test for that icon. A byte mismatch fails the test for that
+// icon with a hint about SNAPSHOT_RECORD.
+//
+// Determinism: this has been validated to produce byte-identical PNGs
+// between local arm64 macOS and the macos-15 GitHub Actions runner.
 
 private let snapshotDir = URL(fileURLWithPath: #filePath)
     .deletingLastPathComponent()
@@ -50,7 +51,6 @@ private func renderPNG(for icon: LucideIcon) throws -> Data {
         throw RenderError.contextFailed
     }
 
-    // White background.
     ctx.setFillColor(red: 1, green: 1, blue: 1, alpha: 1)
     ctx.fill(rect)
 
@@ -59,7 +59,6 @@ private func renderPNG(for icon: LucideIcon) throws -> Data {
     ctx.translateBy(x: 0, y: CGFloat(size))
     ctx.scaleBy(x: 1, y: -1)
 
-    // Stroke the path with Lucide's defaults.
     ctx.addPath(path.cgPath)
     ctx.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1)
     ctx.setLineWidth(2)
@@ -79,34 +78,31 @@ private func renderPNG(for icon: LucideIcon) throws -> Data {
     return data as Data
 }
 
-private func assertSnapshot(_ icon: LucideIcon, name: String) throws {
+private func assertSnapshot(_ icon: LucideIcon) throws {
+    let name = icon.rawValue
     let actual = try renderPNG(for: icon)
     let baselineURL = snapshotDir.appendingPathComponent("\(name).png")
     let record = ProcessInfo.processInfo.environment["SNAPSHOT_RECORD"] == "1"
 
-    if record || !FileManager.default.fileExists(atPath: baselineURL.path) {
+    if record {
         try FileManager.default.createDirectory(at: snapshotDir, withIntermediateDirectories: true)
         try actual.write(to: baselineURL)
-        Issue.record("Wrote snapshot baseline for \(name) at \(baselineURL.path). Re-run without SNAPSHOT_RECORD to verify.")
+        return
+    }
+
+    guard FileManager.default.fileExists(atPath: baselineURL.path) else {
+        Issue.record("No snapshot baseline for \(name). Run tests with SNAPSHOT_RECORD=1 to create one.")
         return
     }
 
     let expected = try Data(contentsOf: baselineURL)
-    #expect(actual == expected, "Snapshot mismatch for \(name). Re-run with SNAPSHOT_RECORD=1 if the change is intentional.")
+    #expect(
+        actual == expected,
+        "Snapshot mismatch for \(name). Re-run with SNAPSHOT_RECORD=1 if the change is intentional."
+    )
 }
 
-// Coverage rationale:
-// - heart, house, circle: simple/canonical icons
-// - aArrowDown: first alphabetical (catches generator-ordering issues)
-// - keyRound: exercises Path.cwStrokedPath via PathExtensions.swift
-// - view, image: the SwiftUI-shadowing cases
-// - wifi: multiple arcs (more complex path)
-
-@Test func heartSnapshot() throws        { try assertSnapshot(.heart,       name: "heart") }
-@Test func houseSnapshot() throws        { try assertSnapshot(.house,       name: "house") }
-@Test func circleSnapshot() throws       { try assertSnapshot(.circle,      name: "circle") }
-@Test func aArrowDownSnapshot() throws   { try assertSnapshot(.aArrowDown,  name: "a-arrow-down") }
-@Test func keyRoundSnapshot() throws     { try assertSnapshot(.keyRound,    name: "key-round") }
-@Test func viewIconSnapshot() throws     { try assertSnapshot(.view,        name: "view") }
-@Test func imageIconSnapshot() throws    { try assertSnapshot(.image,       name: "image") }
-@Test func wifiSnapshot() throws         { try assertSnapshot(.wifi,        name: "wifi") }
+@Test(arguments: LucideIcon.allCases)
+func snapshot(_ icon: LucideIcon) throws {
+    try assertSnapshot(icon)
+}
