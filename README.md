@@ -1,6 +1,18 @@
 # lucide-swift
 
-[Lucide](https://lucide.dev) icons for SwiftUI.
+All 1,700+ [Lucide](https://lucide.dev) icons, native to SwiftUI.
+
+Each icon is a generated `SwiftUI.Shape` — no SVG library, no XML parser, no image assets. The library is a thin View on top of `Path`, and your icons participate in SwiftUI like any other shape: scale to any size, take color from `.foregroundStyle`, animate, mask, combine.
+
+## Why this library
+
+- **Pure SwiftUI** — every icon is a `Shape` whose `path(in:)` is committed Swift code, generated at build time from the upstream SVG. Nothing is parsed at runtime.
+- **Vector, all the way down** — sharp at any size on any display. No PNG/PDF rasters bundled.
+- **Zero runtime dependencies** — depends only on SwiftUI itself.
+- **SwiftUI-idiomatic** — `Lucide(.heart).foregroundStyle(.red).frame(width: 24, height: 24)` works exactly the way you'd expect. Modifiers like `.foregroundStyle`, `.opacity`, `.rotationEffect`, `.animation` all apply.
+- **Type-safe by default** — the `LucideIcon` enum gives you autocomplete and compile-time guarantees. A runtime-string lookup is also available for dynamic UIs (`Lucide("sun")`).
+- **Tracks upstream automatically** — a scheduled workflow watches `lucide-static` on npm and opens a PR whenever Lucide ships a new release. Package versions mirror Lucide exactly: `lucide-swift 1.16.0` ships icons from `lucide@1.16.0`.
+- **Memory-light** — no SVG document trees, no asset bundles, no decoded images sitting in memory. Each icon is a few hundred bytes of stroked-Path commands.
 
 ## Requirements
 
@@ -64,6 +76,11 @@ if let icon = Lucide("sun") {
 ```
 
 The package version mirrors the Lucide release it bundles — `lucide-swift 1.16.0` ships icons from `lucide@1.16.0`. The bundled version is also available at runtime as `LucideVersion.lucide`.
+
+## Credits
+
+- [**Lucide**](https://lucide.dev) — the icon set itself. Beautiful, consistent, community-maintained, licensed ISC. This package would not exist without the work of the Lucide team and its contributors.
+- [**SVG to SwiftUI**](https://github.com/bring-shrubbery/svg-to-swiftui) by [bring-shrubbery](https://github.com/bring-shrubbery) — the converter that turns each SVG into a SwiftUI `Shape`. Its `svg-to-swiftui-core` package powers the `Tools/generate-icons.mjs` pipeline that produces every file under `Sources/Lucide/Icons/`.
 
 ## License
 
