@@ -1,4 +1,4 @@
-# lucide-swift
+# Lucide Icons for SwiftUI
 
 All 1,700+ [Lucide](https://lucide.dev) icons, native to SwiftUI.
 
