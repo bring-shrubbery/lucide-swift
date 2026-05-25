@@ -4,6 +4,8 @@ All 1,700+ [Lucide](https://lucide.dev) icons, native to SwiftUI.
 
 Each icon is a generated `SwiftUI.Shape` — no SVG library, no XML parser, no image assets. The library is a thin View on top of `Path`, and your icons participate in SwiftUI like any other shape: scale to any size, take color from `.foregroundStyle`, animate, mask, combine.
 
+<video src="https://github.com/bring-shrubbery/lucide-swift/raw/main/assets/demo.mp4" width="100%" controls muted playsinline></video>
+
 ## Why this library
 
 - **Pure SwiftUI** — every icon is a `Shape` whose `path(in:)` is committed Swift code, generated at build time from the upstream SVG. Nothing is parsed at runtime.
