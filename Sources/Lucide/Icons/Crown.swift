@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.16.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.17.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Crown: Shape {

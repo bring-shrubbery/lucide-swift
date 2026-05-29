@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.16.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.17.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -746,6 +746,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case gitPullRequest = "git-pull-request"
     case glassWater = "glass-water"
     case glasses = "glasses"
+    case globeCheck = "globe-check"
     case globeLock = "globe-lock"
     case globeOff = "globe-off"
     case globeX = "globe-x"
@@ -1123,6 +1124,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case panelsRightBottom = "panels-right-bottom"
     case panelsTopLeft = "panels-top-left"
     case paperclip = "paperclip"
+    case parasol = "parasol"
     case parentheses = "parentheses"
     case parkingMeter = "parking-meter"
     case partyPopper = "party-popper"
@@ -2462,6 +2464,7 @@ extension LucideIcon {
         case .gitPullRequest: return GitPullRequest().path(in: rect)
         case .glassWater: return GlassWater().path(in: rect)
         case .glasses: return Glasses().path(in: rect)
+        case .globeCheck: return GlobeCheck().path(in: rect)
         case .globeLock: return GlobeLock().path(in: rect)
         case .globeOff: return GlobeOff().path(in: rect)
         case .globeX: return GlobeX().path(in: rect)
@@ -2839,6 +2842,7 @@ extension LucideIcon {
         case .panelsRightBottom: return PanelsRightBottom().path(in: rect)
         case .panelsTopLeft: return PanelsTopLeft().path(in: rect)
         case .paperclip: return Paperclip().path(in: rect)
+        case .parasol: return Parasol().path(in: rect)
         case .parentheses: return Parentheses().path(in: rect)
         case .parkingMeter: return ParkingMeter().path(in: rect)
         case .partyPopper: return PartyPopper().path(in: rect)
