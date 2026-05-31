@@ -14,7 +14,7 @@ Each icon is a generated `SwiftUI.Shape` — no SVG library, no XML parser, no i
 - **SwiftUI-idiomatic** — `Lucide(.heart).foregroundStyle(.red).frame(width: 24, height: 24)` works exactly the way you'd expect. Modifiers like `.foregroundStyle`, `.opacity`, `.rotationEffect`, `.animation` all apply.
 - **Type-safe by default** — the `LucideIcon` enum gives you autocomplete and compile-time guarantees. A runtime-string lookup is also available for dynamic UIs (`Lucide("sun")`).
 - **Tracks upstream automatically** — a scheduled workflow watches `lucide-static` on npm and opens a PR whenever Lucide ships a new release. Package versions mirror Lucide exactly: `lucide-swift 1.16.0` ships icons from `lucide@1.16.0`.
-- **Memory-light** — no SVG document trees, no asset bundles, no decoded images sitting in memory. Each icon is a few hundred bytes of stroked-Path commands.
+- **Memory-light** — no SVG document trees, no asset bundles, no decoded images sitting in memory. Each icon is a few hundred bytes of `Path` commands. Lucide's centerline strokes are baked into closed outline geometry at generation time, so the view fills the outline rather than stroking it.
 
 ## Requirements
 
@@ -59,11 +59,9 @@ struct ContentView: View {
 }
 ```
 
-Pick any icon from [lucide.dev/icons](https://lucide.dev/icons) — its kebab-case name (e.g. `arrow-up-right`) maps to a `LucideIcon` case in camelCase (`.arrowUpRight`). Adjust stroke width with `.lineWidth(_:)`:
+Pick any icon from [lucide.dev/icons](https://lucide.dev/icons) — its kebab-case name (e.g. `arrow-up-right`) maps to a `LucideIcon` case in camelCase (`.arrowUpRight`). Size with `.frame(...)` and tint with `.foregroundStyle(...)`.
 
-```swift
-Lucide(.arrowUpRight).lineWidth(1.5)
-```
+> Icons are filled outline geometry, so there is no stroke width to adjust — the upstream Lucide stroke weight is baked in. `.lineWidth(_:)` remains as a deprecated no-op for source compatibility.
 
 You can also look an icon up by its Lucide name as a string. The init is failable so a typo or missing name returns `nil`:
 
