@@ -4,7 +4,6 @@ import SwiftUI
 // shadow SwiftUI's View and Image types inside this module.
 public struct Lucide: SwiftUI.View {
     private let icon: LucideIcon
-    private var lineWidth: CGFloat = 2
 
     public init(_ icon: LucideIcon) {
         self.icon = icon
@@ -18,21 +17,23 @@ public struct Lucide: SwiftUI.View {
     }
 
     public var body: some SwiftUI.View {
+        // The generated icon paths are already filled OUTLINE geometry: the
+        // SVG-to-SwiftUI compiler bakes Lucide's centerline strokes into
+        // closed outlines via `strokedPath(_:)` (CoreGraphics
+        // `copy(strokingWithWidth:)`). So we FILL that outline — stroking it
+        // again would draw the outline of the outline (a hairline ghost).
+        // Nonzero winding (the default) is correct: where strokes cross
+        // (x, plus, hash) the overlaps stay solid; even-odd would punch holes.
         IconShape(icon: icon)
-            .stroke(
-                style: StrokeStyle(
-                    lineWidth: lineWidth,
-                    lineCap: .round,
-                    lineJoin: .round
-                )
-            )
+            .fill(style: FillStyle(eoFill: false))
             .aspectRatio(1, contentMode: .fit)
     }
 
+    /// Deprecated no-op. Icons are now filled outline geometry, so stroke
+    /// line width has no effect. Kept so existing callers compile unchanged.
+    @available(*, deprecated, message: "Icons are filled outline geometry; lineWidth has no effect.")
     public func lineWidth(_ width: CGFloat) -> Lucide {
-        var copy = self
-        copy.lineWidth = width
-        return copy
+        self
     }
 }
 
