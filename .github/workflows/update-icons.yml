@@ -20,9 +20,9 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: '24'
 
@@ -49,7 +49,7 @@ jobs:
 
       - name: Open pull request
         if: steps.check.outcome == 'failure' || inputs.version != ''
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: auto/lucide-update
           commit-message: 'Update Lucide to ${{ steps.apply.outputs.version }}'
