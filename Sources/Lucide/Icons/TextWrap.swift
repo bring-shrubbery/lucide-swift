@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.21.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.22.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct TextWrap: Shape {

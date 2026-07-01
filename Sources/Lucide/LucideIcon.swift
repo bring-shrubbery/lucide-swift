@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.21.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.22.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -517,8 +517,14 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case currency = "currency"
     case cylinder = "cylinder"
     case dam = "dam"
+    case databaseArrowDown = "database-arrow-down"
+    case databaseArrowUp = "database-arrow-up"
     case databaseBackup = "database-backup"
+    case databaseCheck = "database-check"
+    case databaseMinus = "database-minus"
+    case databasePlus = "database-plus"
     case databaseSearch = "database-search"
+    case databaseX = "database-x"
     case databaseZap = "database-zap"
     case database = "database"
     case decimalsArrowLeft = "decimals-arrow-left"
@@ -1151,6 +1157,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case pentagon = "pentagon"
     case percent = "percent"
     case personStanding = "person-standing"
+    case phi = "phi"
     case philippinePeso = "philippine-peso"
     case phoneCall = "phone-call"
     case phoneForwarded = "phone-forwarded"
@@ -2259,8 +2266,14 @@ extension LucideIcon {
         case .currency: return Currency().path(in: rect)
         case .cylinder: return Cylinder().path(in: rect)
         case .dam: return Dam().path(in: rect)
+        case .databaseArrowDown: return DatabaseArrowDown().path(in: rect)
+        case .databaseArrowUp: return DatabaseArrowUp().path(in: rect)
         case .databaseBackup: return DatabaseBackup().path(in: rect)
+        case .databaseCheck: return DatabaseCheck().path(in: rect)
+        case .databaseMinus: return DatabaseMinus().path(in: rect)
+        case .databasePlus: return DatabasePlus().path(in: rect)
         case .databaseSearch: return DatabaseSearch().path(in: rect)
+        case .databaseX: return DatabaseX().path(in: rect)
         case .databaseZap: return DatabaseZap().path(in: rect)
         case .database: return Database().path(in: rect)
         case .decimalsArrowLeft: return DecimalsArrowLeft().path(in: rect)
@@ -2893,6 +2906,7 @@ extension LucideIcon {
         case .pentagon: return Pentagon().path(in: rect)
         case .percent: return Percent().path(in: rect)
         case .personStanding: return PersonStanding().path(in: rect)
+        case .phi: return Phi().path(in: rect)
         case .philippinePeso: return PhilippinePeso().path(in: rect)
         case .phoneCall: return PhoneCall().path(in: rect)
         case .phoneForwarded: return PhoneForwarded().path(in: rect)
