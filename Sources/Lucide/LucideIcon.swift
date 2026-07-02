@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.22.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.23.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -1137,6 +1137,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case panelsLeftBottom = "panels-left-bottom"
     case panelsRightBottom = "panels-right-bottom"
     case panelsTopLeft = "panels-top-left"
+    case paperBag = "paper-bag"
     case paperclip = "paperclip"
     case parasol = "parasol"
     case parentheses = "parentheses"
@@ -2886,6 +2887,7 @@ extension LucideIcon {
         case .panelsLeftBottom: return PanelsLeftBottom().path(in: rect)
         case .panelsRightBottom: return PanelsRightBottom().path(in: rect)
         case .panelsTopLeft: return PanelsTopLeft().path(in: rect)
+        case .paperBag: return PaperBag().path(in: rect)
         case .paperclip: return Paperclip().path(in: rect)
         case .parasol: return Parasol().path(in: rect)
         case .parentheses: return Parentheses().path(in: rect)
