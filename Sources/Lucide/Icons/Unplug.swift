@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.23.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.24.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Unplug: Shape {
