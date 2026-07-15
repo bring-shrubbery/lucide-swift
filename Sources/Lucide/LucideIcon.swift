@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.23.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.24.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -381,6 +381,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case circleDot = "circle-dot"
     case circleEllipsis = "circle-ellipsis"
     case circleEqual = "circle-equal"
+    case circleEuroSign = "circle-euro-sign"
     case circleFadingArrowUp = "circle-fading-arrow-up"
     case circleFadingPlus = "circle-fading-plus"
     case circleGauge = "circle-gauge"
@@ -2131,6 +2132,7 @@ extension LucideIcon {
         case .circleDot: return CircleDot().path(in: rect)
         case .circleEllipsis: return CircleEllipsis().path(in: rect)
         case .circleEqual: return CircleEqual().path(in: rect)
+        case .circleEuroSign: return CircleEuroSign().path(in: rect)
         case .circleFadingArrowUp: return CircleFadingArrowUp().path(in: rect)
         case .circleFadingPlus: return CircleFadingPlus().path(in: rect)
         case .circleGauge: return CircleGauge().path(in: rect)

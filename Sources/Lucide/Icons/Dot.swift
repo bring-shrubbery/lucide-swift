@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.23.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.24.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Dot: Shape {
@@ -7,7 +7,7 @@ internal struct Dot: Shape {
         let width = rect.size.width
         let height = rect.size.height
         var strokePath1 = Path()
-        strokePath1.addEllipse(in: CGRect(x: 0.4625*width, y: 0.4625*height, width: 0.0833333333*width, height: 0.0833333333*height))
+        strokePath1.addEllipse(in: CGRect(x: 0.4583333333*width, y: 0.4583333333*height, width: 0.0833333333*width, height: 0.0833333333*height))
         path.addPath(strokePath1.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }
