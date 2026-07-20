@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.24.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -381,7 +381,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case circleDot = "circle-dot"
     case circleEllipsis = "circle-ellipsis"
     case circleEqual = "circle-equal"
-    case circleEuroSign = "circle-euro-sign"
+    case circleEuro = "circle-euro"
     case circleFadingArrowUp = "circle-fading-arrow-up"
     case circleFadingPlus = "circle-fading-plus"
     case circleGauge = "circle-gauge"
@@ -1297,6 +1297,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case scale = "scale"
     case scaling = "scaling"
     case scanBarcode = "scan-barcode"
+    case scanBox = "scan-box"
     case scanEye = "scan-eye"
     case scanFace = "scan-face"
     case scanHeart = "scan-heart"
@@ -1328,6 +1329,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case serverCog = "server-cog"
     case serverCrash = "server-crash"
     case serverOff = "server-off"
+    case serverPlus = "server-plus"
     case server = "server"
     case settings2 = "settings-2"
     case settings = "settings"
@@ -2132,7 +2134,7 @@ extension LucideIcon {
         case .circleDot: return CircleDot().path(in: rect)
         case .circleEllipsis: return CircleEllipsis().path(in: rect)
         case .circleEqual: return CircleEqual().path(in: rect)
-        case .circleEuroSign: return CircleEuroSign().path(in: rect)
+        case .circleEuro: return CircleEuro().path(in: rect)
         case .circleFadingArrowUp: return CircleFadingArrowUp().path(in: rect)
         case .circleFadingPlus: return CircleFadingPlus().path(in: rect)
         case .circleGauge: return CircleGauge().path(in: rect)
@@ -3048,6 +3050,7 @@ extension LucideIcon {
         case .scale: return Scale().path(in: rect)
         case .scaling: return Scaling().path(in: rect)
         case .scanBarcode: return ScanBarcode().path(in: rect)
+        case .scanBox: return ScanBox().path(in: rect)
         case .scanEye: return ScanEye().path(in: rect)
         case .scanFace: return ScanFace().path(in: rect)
         case .scanHeart: return ScanHeart().path(in: rect)
@@ -3079,6 +3082,7 @@ extension LucideIcon {
         case .serverCog: return ServerCog().path(in: rect)
         case .serverCrash: return ServerCrash().path(in: rect)
         case .serverOff: return ServerOff().path(in: rect)
+        case .serverPlus: return ServerPlus().path(in: rect)
         case .server: return Server().path(in: rect)
         case .settings2: return Settings2().path(in: rect)
         case .settings: return Settings().path(in: rect)

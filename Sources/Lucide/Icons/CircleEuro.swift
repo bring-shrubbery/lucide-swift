@@ -1,7 +1,7 @@
-// GENERATED FROM lucide-static@1.24.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
 import SwiftUI
 
-internal struct CircleEuroSign: Shape {
+internal struct CircleEuro: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let width = rect.size.width
