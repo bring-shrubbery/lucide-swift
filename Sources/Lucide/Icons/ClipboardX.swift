@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct ClipboardX: Shape {
@@ -22,12 +22,12 @@ internal struct ClipboardX: Shape {
         strokePath3.addLine(to: CGPoint(x: 0.3333333333*width, y: 0.1666666667*height))
         path.addPath(strokePath3.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath5 = Path()
-        strokePath5.move(to: CGPoint(x: 0.625*width, y: 0.4583333333*height))
-        strokePath5.addLine(to: CGPoint(x: 0.375*width, y: 0.7083333333*height))
+        strokePath5.move(to: CGPoint(x: 0.6041666667*width, y: 0.4791666667*height))
+        strokePath5.addLine(to: CGPoint(x: 0.3958333333*width, y: 0.6875*height))
         path.addPath(strokePath5.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath7 = Path()
-        strokePath7.move(to: CGPoint(x: 0.375*width, y: 0.4583333333*height))
-        strokePath7.addLine(to: CGPoint(x: 0.625*width, y: 0.7083333333*height))
+        strokePath7.move(to: CGPoint(x: 0.3958333333*width, y: 0.4791666667*height))
+        strokePath7.addLine(to: CGPoint(x: 0.6041666667*width, y: 0.6875*height))
         path.addPath(strokePath7.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }

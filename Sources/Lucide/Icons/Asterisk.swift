@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Asterisk: Shape {
@@ -7,16 +7,16 @@ internal struct Asterisk: Shape {
         let width = rect.size.width
         let height = rect.size.height
         var strokePath2 = Path()
-        strokePath2.move(to: CGPoint(x: 0.5*width, y: 0.25*height))
-        strokePath2.addLine(to: CGPoint(x: 0.5*width, y: 0.75*height))
+        strokePath2.move(to: CGPoint(x: 0.5*width, y: 0.2083333333*height))
+        strokePath2.addLine(to: CGPoint(x: 0.5*width, y: 0.7916666667*height))
         path.addPath(strokePath2.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath4 = Path()
-        strokePath4.move(to: CGPoint(x: 0.7165*width, y: 0.375*height))
-        strokePath4.addLine(to: CGPoint(x: 0.2835*width, y: 0.625*height))
+        strokePath4.move(to: CGPoint(x: 0.7527083333*width, y: 0.354*height))
+        strokePath4.addLine(to: CGPoint(x: 0.2475*width, y: 0.6456666667*height))
         path.addPath(strokePath4.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath6 = Path()
-        strokePath6.move(to: CGPoint(x: 0.2835*width, y: 0.375*height))
-        strokePath6.addLine(to: CGPoint(x: 0.7165*width, y: 0.625*height))
+        strokePath6.move(to: CGPoint(x: 0.2475*width, y: 0.3543333333*height))
+        strokePath6.addLine(to: CGPoint(x: 0.7527083333*width, y: 0.646*height))
         path.addPath(strokePath6.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }

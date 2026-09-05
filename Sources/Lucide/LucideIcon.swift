@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -44,8 +44,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case ampersands = "ampersands"
     case amphora = "amphora"
     case anchor = "anchor"
-    case angry = "angry"
-    case annoyed = "annoyed"
+    case angle = "angle"
     case antenna = "antenna"
     case anvil = "anvil"
     case aperture = "aperture"
@@ -103,6 +102,8 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case astroid = "astroid"
     case atSign = "at-sign"
     case atom = "atom"
+    case audioLinesOff = "audio-lines-off"
+    case audioLinesX = "audio-lines-x"
     case audioLines = "audio-lines"
     case audioWaveform = "audio-waveform"
     case award = "award"
@@ -240,12 +241,15 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case brickWallFire = "brick-wall-fire"
     case brickWallShield = "brick-wall-shield"
     case brickWall = "brick-wall"
+    case bridge = "bridge"
     case briefcaseBusiness = "briefcase-business"
     case briefcaseConveyorBelt = "briefcase-conveyor-belt"
     case briefcaseMedical = "briefcase-medical"
     case briefcase = "briefcase"
     case bringToFront = "bring-to-front"
     case broccoli = "broccoli"
+    case broomSparkles = "broom-sparkles"
+    case broom = "broom"
     case brushCleaning = "brush-cleaning"
     case brush = "brush"
     case bubbles = "bubbles"
@@ -285,6 +289,8 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case calendars = "calendars"
     case cameraOff = "camera-off"
     case camera = "camera"
+    case canSoda = "can-soda"
+    case can = "can"
     case candyCane = "candy-cane"
     case candyOff = "candy-off"
     case candy = "candy"
@@ -292,6 +298,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case cannabis = "cannabis"
     case captionsOff = "captions-off"
     case captions = "captions"
+    case carBattery = "car-battery"
     case carFront = "car-front"
     case carTaxiFront = "car-taxi-front"
     case car = "car"
@@ -507,6 +514,11 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case cornerUpRight = "corner-up-right"
     case cpu = "cpu"
     case creativeCommons = "creative-commons"
+    case creditCardCheck = "credit-card-check"
+    case creditCardMinus = "credit-card-minus"
+    case creditCardPlus = "credit-card-plus"
+    case creditCardReader = "credit-card-reader"
+    case creditCardX = "credit-card-x"
     case creditCard = "credit-card"
     case croissant = "croissant"
     case crop = "crop"
@@ -559,6 +571,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case doorClosedLocked = "door-closed-locked"
     case doorClosed = "door-closed"
     case doorOpen = "door-open"
+    case doorStairwell = "door-stairwell"
     case dot = "dot"
     case download = "download"
     case draftingCompass = "drafting-compass"
@@ -579,9 +592,11 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case eggFried = "egg-fried"
     case eggOff = "egg-off"
     case egg = "egg"
+    case eject = "eject"
     case ellipse = "ellipse"
     case ellipsisVertical = "ellipsis-vertical"
     case ellipsis = "ellipsis"
+    case engine = "engine"
     case equalApproximately = "equal-approximately"
     case equalNot = "equal-not"
     case equal = "equal"
@@ -595,6 +610,13 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case eyeDashed = "eye-dashed"
     case eyeOff = "eye-off"
     case eye = "eye"
+    case faceAngry = "face-angry"
+    case faceExpressionless = "face-expressionless"
+    case faceGrinning = "face-grinning"
+    case faceNeutral = "face-neutral"
+    case faceSlightlyFrowning = "face-slightly-frowning"
+    case faceSlightlySmilingPlus = "face-slightly-smiling-plus"
+    case faceSlightlySmiling = "face-slightly-smiling"
     case factory = "factory"
     case fan = "fan"
     case fastForward = "fast-forward"
@@ -720,12 +742,12 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case form = "form"
     case forward = "forward"
     case frame = "frame"
-    case frown = "frown"
     case fuel = "fuel"
     case fullscreen = "fullscreen"
     case funnelPlus = "funnel-plus"
     case funnelX = "funnel-x"
     case funnel = "funnel"
+    case galaxy = "galaxy"
     case galleryHorizontalEnd = "gallery-horizontal-end"
     case galleryHorizontal = "gallery-horizontal"
     case galleryThumbnails = "gallery-thumbnails"
@@ -738,6 +760,8 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case gavel = "gavel"
     case gem = "gem"
     case georgianLari = "georgian-lari"
+    case germOff = "germ-off"
+    case germ = "germ"
     case ghost = "ghost"
     case gift = "gift"
     case gitBranchMinus = "git-branch-minus"
@@ -823,7 +847,6 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case helicopter = "helicopter"
     case hexagon = "hexagon"
     case highlighter = "highlighter"
-    case history = "history"
     case hopOff = "hop-off"
     case hop = "hop"
     case hospital = "hospital"
@@ -880,12 +903,16 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case laptop = "laptop"
     case lassoSelect = "lasso-select"
     case lasso = "lasso"
-    case laugh = "laugh"
+    case layerArrowDown = "layer-arrow-down"
+    case layerArrowUp = "layer-arrow-up"
     case layers2 = "layers-2"
+    case layersArrowDown = "layers-arrow-down"
+    case layersArrowUp = "layers-arrow-up"
     case layersMinus = "layers-minus"
     case layersPlus = "layers-plus"
     case layers = "layers"
     case layoutDashboard = "layout-dashboard"
+    case layoutFreeform = "layout-freeform"
     case layoutGrid = "layout-grid"
     case layoutList = "layout-list"
     case layoutPanelLeft = "layout-panel-left"
@@ -902,6 +929,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case ligature = "ligature"
     case lightbulbOff = "lightbulb-off"
     case lightbulb = "lightbulb"
+    case lighthouse = "lighthouse"
     case lineDotRightHorizontal = "line-dot-right-horizontal"
     case lineSquiggle = "line-squiggle"
     case lineStyle = "line-style"
@@ -912,6 +940,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case listChecks = "list-checks"
     case listChevronsDownUp = "list-chevrons-down-up"
     case listChevronsUpDown = "list-chevrons-up-down"
+    case listClock = "list-clock"
     case listCollapse = "list-collapse"
     case listEnd = "list-end"
     case listFilterPlus = "list-filter-plus"
@@ -947,9 +976,12 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case lollipop = "lollipop"
     case luggage = "luggage"
     case magnet = "magnet"
+    case mailBadge = "mail-badge"
     case mailCheck = "mail-check"
+    case mailClock = "mail-clock"
     case mailMinus = "mail-minus"
     case mailOpen = "mail-open"
+    case mailPen = "mail-pen"
     case mailPlus = "mail-plus"
     case mailQuestionMark = "mail-question-mark"
     case mailSearch = "mail-search"
@@ -983,12 +1015,12 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case medal = "medal"
     case megaphoneOff = "megaphone-off"
     case megaphone = "megaphone"
-    case meh = "meh"
     case memoryStick = "memory-stick"
     case menu = "menu"
     case merge = "merge"
     case messageCircleCheck = "message-circle-check"
     case messageCircleCode = "message-circle-code"
+    case messageCircleDashedCheck = "message-circle-dashed-check"
     case messageCircleDashed = "message-circle-dashed"
     case messageCircleHeart = "message-circle-heart"
     case messageCircleMore = "message-circle-more"
@@ -1018,12 +1050,15 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case messageSquare = "message-square"
     case messagesSquare = "messages-square"
     case metronome = "metronome"
+    case micAudioLines = "mic-audio-lines"
     case micOff = "mic-off"
+    case micSignal = "mic-signal"
     case micVocal = "mic-vocal"
     case mic = "mic"
     case microchip = "microchip"
     case microscope = "microscope"
     case microwave = "microwave"
+    case midiPort = "midi-port"
     case milestone = "milestone"
     case milkOff = "milk-off"
     case milk = "milk"
@@ -1048,6 +1083,9 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case monitor = "monitor"
     case moonStar = "moon-star"
     case moon = "moon"
+    case mopSparkles = "mop-sparkles"
+    case mop = "mop"
+    case mosque = "mosque"
     case motorbike = "motorbike"
     case mountainSnow = "mountain-snow"
     case mountain = "mountain"
@@ -1188,12 +1226,14 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case plane = "plane"
     case playOff = "play-off"
     case play = "play"
+    case playingCard = "playing-card"
+    case playingCardsFan = "playing-cards-fan"
+    case playingCards = "playing-cards"
     case plug2 = "plug-2"
     case plugZap = "plug-zap"
     case plug = "plug"
     case plus = "plus"
     case pocketKnife = "pocket-knife"
-    case podcast = "podcast"
     case podium = "podium"
     case pointerOff = "pointer-off"
     case pointer = "pointer"
@@ -1261,14 +1301,18 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case rewind = "rewind"
     case ribbon = "ribbon"
     case road = "road"
+    case robotArm = "robot-arm"
+    case robotVacuum = "robot-vacuum"
     case rocket = "rocket"
     case rockingChair = "rocking-chair"
     case rollerCoaster = "roller-coaster"
     case rose = "rose"
     case rotate3d = "rotate-3d"
+    case rotateCcwClock = "rotate-ccw-clock"
     case rotateCcwKey = "rotate-ccw-key"
     case rotateCcwSquare = "rotate-ccw-square"
     case rotateCcw = "rotate-ccw"
+    case rotateCwFadingClock = "rotate-cw-fading-clock"
     case rotateCwSquare = "rotate-cw-square"
     case rotateCw = "rotate-cw"
     case routeOff = "route-off"
@@ -1304,6 +1348,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case scanLine = "scan-line"
     case scanQrCode = "scan-qr-code"
     case scanSearch = "scan-search"
+    case scanSquare = "scan-square"
     case scanText = "scan-text"
     case scan = "scan"
     case school = "school"
@@ -1346,6 +1391,8 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case shieldCog = "shield-cog"
     case shieldEllipsis = "shield-ellipsis"
     case shieldHalf = "shield-half"
+    case shieldKeyhole = "shield-keyhole"
+    case shieldLock = "shield-lock"
     case shieldMinus = "shield-minus"
     case shieldOff = "shield-off"
     case shieldPlus = "shield-plus"
@@ -1353,15 +1400,19 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case shieldUser = "shield-user"
     case shieldX = "shield-x"
     case shield = "shield"
+    case shipCargo = "ship-cargo"
     case shipWheel = "ship-wheel"
     case ship = "ship"
     case shirt = "shirt"
     case shoppingBag = "shopping-bag"
     case shoppingBasket = "shopping-basket"
+    case shoppingCartMinus = "shopping-cart-minus"
+    case shoppingCartPlus = "shopping-cart-plus"
     case shoppingCart = "shopping-cart"
     case shovel = "shovel"
     case showerHead = "shower-head"
     case shredder = "shredder"
+    case shrimpOff = "shrimp-off"
     case shrimp = "shrimp"
     case shrink = "shrink"
     case shrub = "shrub"
@@ -1386,8 +1437,6 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case smartphoneCharging = "smartphone-charging"
     case smartphoneNfc = "smartphone-nfc"
     case smartphone = "smartphone"
-    case smilePlus = "smile-plus"
-    case smile = "smile"
     case snail = "snail"
     case snowflake = "snowflake"
     case soapDispenserDroplet = "soap-dispenser-droplet"
@@ -1444,9 +1493,11 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case squareDashedText = "square-dashed-text"
     case squareDashedTopSolid = "square-dashed-top-solid"
     case squareDashed = "square-dashed"
+    case squareDimensions = "square-dimensions"
     case squareDivide = "square-divide"
     case squareDot = "square-dot"
     case squareEqual = "square-equal"
+    case squareExclamationPoint = "square-exclamation-point"
     case squareFunction = "square-function"
     case squareKanban = "square-kanban"
     case squareLibrary = "square-library"
@@ -1454,6 +1505,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case squareMenu = "square-menu"
     case squareMinus = "square-minus"
     case squareMousePointer = "square-mouse-pointer"
+    case squareOff = "square-off"
     case squareParkingOff = "square-parking-off"
     case squareParking = "square-parking"
     case squarePause = "square-pause"
@@ -1476,6 +1528,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case squareStar = "square-star"
     case squareStop = "square-stop"
     case squareTerminal = "square-terminal"
+    case squareText = "square-text"
     case squareUserRound = "square-user-round"
     case squareUser = "square-user"
     case squareX = "square-x"
@@ -1599,12 +1652,12 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case toyBrick = "toy-brick"
     case tractor = "tractor"
     case trafficCone = "traffic-cone"
+    case trailer = "trailer"
     case trainFrontTunnel = "train-front-tunnel"
     case trainFront = "train-front"
     case trainTrack = "train-track"
     case tramFront = "tram-front"
     case transgender = "transgender"
-    case trash2 = "trash-2"
     case trash = "trash"
     case treeDeciduous = "tree-deciduous"
     case treePalm = "tree-palm"
@@ -1642,6 +1695,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case unlink = "unlink"
     case unplug = "unplug"
     case upload = "upload"
+    case usbCPort = "usb-c-port"
     case usb = "usb"
     case userCheck = "user-check"
     case userCog = "user-cog"
@@ -1661,6 +1715,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case userRoundX = "user-round-x"
     case userRound = "user-round"
     case userSearch = "user-search"
+    case userShield = "user-shield"
     case userStar = "user-star"
     case userX = "user-x"
     case user = "user"
@@ -1672,6 +1727,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case van = "van"
     case variable = "variable"
     case vault = "vault"
+    case vectorPolygon = "vector-polygon"
     case vectorSquare = "vector-square"
     case vegan = "vegan"
     case venetianMask = "venetian-mask"
@@ -1683,6 +1739,8 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case video = "video"
     case videotape = "videotape"
     case view = "view"
+    case virusOff = "virus-off"
+    case virus = "virus"
     case voicemail = "voicemail"
     case volleyball = "volleyball"
     case volume1 = "volume-1"
@@ -1714,6 +1772,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case weight = "weight"
     case wheatOff = "wheat-off"
     case wheat = "wheat"
+    case whistle = "whistle"
     case wholeWord = "whole-word"
     case wifiCog = "wifi-cog"
     case wifiHigh = "wifi-high"
@@ -1797,8 +1856,7 @@ extension LucideIcon {
         case .ampersands: return Ampersands().path(in: rect)
         case .amphora: return Amphora().path(in: rect)
         case .anchor: return Anchor().path(in: rect)
-        case .angry: return Angry().path(in: rect)
-        case .annoyed: return Annoyed().path(in: rect)
+        case .angle: return Angle().path(in: rect)
         case .antenna: return Antenna().path(in: rect)
         case .anvil: return Anvil().path(in: rect)
         case .aperture: return Aperture().path(in: rect)
@@ -1856,6 +1914,8 @@ extension LucideIcon {
         case .astroid: return Astroid().path(in: rect)
         case .atSign: return AtSign().path(in: rect)
         case .atom: return Atom().path(in: rect)
+        case .audioLinesOff: return AudioLinesOff().path(in: rect)
+        case .audioLinesX: return AudioLinesX().path(in: rect)
         case .audioLines: return AudioLines().path(in: rect)
         case .audioWaveform: return AudioWaveform().path(in: rect)
         case .award: return Award().path(in: rect)
@@ -1993,12 +2053,15 @@ extension LucideIcon {
         case .brickWallFire: return BrickWallFire().path(in: rect)
         case .brickWallShield: return BrickWallShield().path(in: rect)
         case .brickWall: return BrickWall().path(in: rect)
+        case .bridge: return Bridge().path(in: rect)
         case .briefcaseBusiness: return BriefcaseBusiness().path(in: rect)
         case .briefcaseConveyorBelt: return BriefcaseConveyorBelt().path(in: rect)
         case .briefcaseMedical: return BriefcaseMedical().path(in: rect)
         case .briefcase: return Briefcase().path(in: rect)
         case .bringToFront: return BringToFront().path(in: rect)
         case .broccoli: return Broccoli().path(in: rect)
+        case .broomSparkles: return BroomSparkles().path(in: rect)
+        case .broom: return Broom().path(in: rect)
         case .brushCleaning: return BrushCleaning().path(in: rect)
         case .brush: return Brush().path(in: rect)
         case .bubbles: return Bubbles().path(in: rect)
@@ -2038,6 +2101,8 @@ extension LucideIcon {
         case .calendars: return Calendars().path(in: rect)
         case .cameraOff: return CameraOff().path(in: rect)
         case .camera: return Camera().path(in: rect)
+        case .canSoda: return CanSoda().path(in: rect)
+        case .can: return Can().path(in: rect)
         case .candyCane: return CandyCane().path(in: rect)
         case .candyOff: return CandyOff().path(in: rect)
         case .candy: return Candy().path(in: rect)
@@ -2045,6 +2110,7 @@ extension LucideIcon {
         case .cannabis: return Cannabis().path(in: rect)
         case .captionsOff: return CaptionsOff().path(in: rect)
         case .captions: return Captions().path(in: rect)
+        case .carBattery: return CarBattery().path(in: rect)
         case .carFront: return CarFront().path(in: rect)
         case .carTaxiFront: return CarTaxiFront().path(in: rect)
         case .car: return Car().path(in: rect)
@@ -2260,6 +2326,11 @@ extension LucideIcon {
         case .cornerUpRight: return CornerUpRight().path(in: rect)
         case .cpu: return Cpu().path(in: rect)
         case .creativeCommons: return CreativeCommons().path(in: rect)
+        case .creditCardCheck: return CreditCardCheck().path(in: rect)
+        case .creditCardMinus: return CreditCardMinus().path(in: rect)
+        case .creditCardPlus: return CreditCardPlus().path(in: rect)
+        case .creditCardReader: return CreditCardReader().path(in: rect)
+        case .creditCardX: return CreditCardX().path(in: rect)
         case .creditCard: return CreditCard().path(in: rect)
         case .croissant: return Croissant().path(in: rect)
         case .crop: return Crop().path(in: rect)
@@ -2312,6 +2383,7 @@ extension LucideIcon {
         case .doorClosedLocked: return DoorClosedLocked().path(in: rect)
         case .doorClosed: return DoorClosed().path(in: rect)
         case .doorOpen: return DoorOpen().path(in: rect)
+        case .doorStairwell: return DoorStairwell().path(in: rect)
         case .dot: return Dot().path(in: rect)
         case .download: return Download().path(in: rect)
         case .draftingCompass: return DraftingCompass().path(in: rect)
@@ -2332,9 +2404,11 @@ extension LucideIcon {
         case .eggFried: return EggFried().path(in: rect)
         case .eggOff: return EggOff().path(in: rect)
         case .egg: return Egg().path(in: rect)
+        case .eject: return Eject().path(in: rect)
         case .ellipse: return Ellipse().path(in: rect)
         case .ellipsisVertical: return EllipsisVertical().path(in: rect)
         case .ellipsis: return Ellipsis().path(in: rect)
+        case .engine: return Engine().path(in: rect)
         case .equalApproximately: return EqualApproximately().path(in: rect)
         case .equalNot: return EqualNot().path(in: rect)
         case .equal: return Equal().path(in: rect)
@@ -2348,6 +2422,13 @@ extension LucideIcon {
         case .eyeDashed: return EyeDashed().path(in: rect)
         case .eyeOff: return EyeOff().path(in: rect)
         case .eye: return Eye().path(in: rect)
+        case .faceAngry: return FaceAngry().path(in: rect)
+        case .faceExpressionless: return FaceExpressionless().path(in: rect)
+        case .faceGrinning: return FaceGrinning().path(in: rect)
+        case .faceNeutral: return FaceNeutral().path(in: rect)
+        case .faceSlightlyFrowning: return FaceSlightlyFrowning().path(in: rect)
+        case .faceSlightlySmilingPlus: return FaceSlightlySmilingPlus().path(in: rect)
+        case .faceSlightlySmiling: return FaceSlightlySmiling().path(in: rect)
         case .factory: return Factory().path(in: rect)
         case .fan: return Fan().path(in: rect)
         case .fastForward: return FastForward().path(in: rect)
@@ -2473,12 +2554,12 @@ extension LucideIcon {
         case .form: return Form().path(in: rect)
         case .forward: return Forward().path(in: rect)
         case .frame: return Frame().path(in: rect)
-        case .frown: return Frown().path(in: rect)
         case .fuel: return Fuel().path(in: rect)
         case .fullscreen: return Fullscreen().path(in: rect)
         case .funnelPlus: return FunnelPlus().path(in: rect)
         case .funnelX: return FunnelX().path(in: rect)
         case .funnel: return Funnel().path(in: rect)
+        case .galaxy: return Galaxy().path(in: rect)
         case .galleryHorizontalEnd: return GalleryHorizontalEnd().path(in: rect)
         case .galleryHorizontal: return GalleryHorizontal().path(in: rect)
         case .galleryThumbnails: return GalleryThumbnails().path(in: rect)
@@ -2491,6 +2572,8 @@ extension LucideIcon {
         case .gavel: return Gavel().path(in: rect)
         case .gem: return Gem().path(in: rect)
         case .georgianLari: return GeorgianLari().path(in: rect)
+        case .germOff: return GermOff().path(in: rect)
+        case .germ: return Germ().path(in: rect)
         case .ghost: return Ghost().path(in: rect)
         case .gift: return Gift().path(in: rect)
         case .gitBranchMinus: return GitBranchMinus().path(in: rect)
@@ -2576,7 +2659,6 @@ extension LucideIcon {
         case .helicopter: return Helicopter().path(in: rect)
         case .hexagon: return Hexagon().path(in: rect)
         case .highlighter: return Highlighter().path(in: rect)
-        case .history: return History().path(in: rect)
         case .hopOff: return HopOff().path(in: rect)
         case .hop: return Hop().path(in: rect)
         case .hospital: return Hospital().path(in: rect)
@@ -2633,12 +2715,16 @@ extension LucideIcon {
         case .laptop: return Laptop().path(in: rect)
         case .lassoSelect: return LassoSelect().path(in: rect)
         case .lasso: return Lasso().path(in: rect)
-        case .laugh: return Laugh().path(in: rect)
+        case .layerArrowDown: return LayerArrowDown().path(in: rect)
+        case .layerArrowUp: return LayerArrowUp().path(in: rect)
         case .layers2: return Layers2().path(in: rect)
+        case .layersArrowDown: return LayersArrowDown().path(in: rect)
+        case .layersArrowUp: return LayersArrowUp().path(in: rect)
         case .layersMinus: return LayersMinus().path(in: rect)
         case .layersPlus: return LayersPlus().path(in: rect)
         case .layers: return Layers().path(in: rect)
         case .layoutDashboard: return LayoutDashboard().path(in: rect)
+        case .layoutFreeform: return LayoutFreeform().path(in: rect)
         case .layoutGrid: return LayoutGrid().path(in: rect)
         case .layoutList: return LayoutList().path(in: rect)
         case .layoutPanelLeft: return LayoutPanelLeft().path(in: rect)
@@ -2655,6 +2741,7 @@ extension LucideIcon {
         case .ligature: return Ligature().path(in: rect)
         case .lightbulbOff: return LightbulbOff().path(in: rect)
         case .lightbulb: return Lightbulb().path(in: rect)
+        case .lighthouse: return Lighthouse().path(in: rect)
         case .lineDotRightHorizontal: return LineDotRightHorizontal().path(in: rect)
         case .lineSquiggle: return LineSquiggle().path(in: rect)
         case .lineStyle: return LineStyle().path(in: rect)
@@ -2665,6 +2752,7 @@ extension LucideIcon {
         case .listChecks: return ListChecks().path(in: rect)
         case .listChevronsDownUp: return ListChevronsDownUp().path(in: rect)
         case .listChevronsUpDown: return ListChevronsUpDown().path(in: rect)
+        case .listClock: return ListClock().path(in: rect)
         case .listCollapse: return ListCollapse().path(in: rect)
         case .listEnd: return ListEnd().path(in: rect)
         case .listFilterPlus: return ListFilterPlus().path(in: rect)
@@ -2700,9 +2788,12 @@ extension LucideIcon {
         case .lollipop: return Lollipop().path(in: rect)
         case .luggage: return Luggage().path(in: rect)
         case .magnet: return Magnet().path(in: rect)
+        case .mailBadge: return MailBadge().path(in: rect)
         case .mailCheck: return MailCheck().path(in: rect)
+        case .mailClock: return MailClock().path(in: rect)
         case .mailMinus: return MailMinus().path(in: rect)
         case .mailOpen: return MailOpen().path(in: rect)
+        case .mailPen: return MailPen().path(in: rect)
         case .mailPlus: return MailPlus().path(in: rect)
         case .mailQuestionMark: return MailQuestionMark().path(in: rect)
         case .mailSearch: return MailSearch().path(in: rect)
@@ -2736,12 +2827,12 @@ extension LucideIcon {
         case .medal: return Medal().path(in: rect)
         case .megaphoneOff: return MegaphoneOff().path(in: rect)
         case .megaphone: return Megaphone().path(in: rect)
-        case .meh: return Meh().path(in: rect)
         case .memoryStick: return MemoryStick().path(in: rect)
         case .menu: return Menu().path(in: rect)
         case .merge: return Merge().path(in: rect)
         case .messageCircleCheck: return MessageCircleCheck().path(in: rect)
         case .messageCircleCode: return MessageCircleCode().path(in: rect)
+        case .messageCircleDashedCheck: return MessageCircleDashedCheck().path(in: rect)
         case .messageCircleDashed: return MessageCircleDashed().path(in: rect)
         case .messageCircleHeart: return MessageCircleHeart().path(in: rect)
         case .messageCircleMore: return MessageCircleMore().path(in: rect)
@@ -2771,12 +2862,15 @@ extension LucideIcon {
         case .messageSquare: return MessageSquare().path(in: rect)
         case .messagesSquare: return MessagesSquare().path(in: rect)
         case .metronome: return Metronome().path(in: rect)
+        case .micAudioLines: return MicAudioLines().path(in: rect)
         case .micOff: return MicOff().path(in: rect)
+        case .micSignal: return MicSignal().path(in: rect)
         case .micVocal: return MicVocal().path(in: rect)
         case .mic: return Mic().path(in: rect)
         case .microchip: return Microchip().path(in: rect)
         case .microscope: return Microscope().path(in: rect)
         case .microwave: return Microwave().path(in: rect)
+        case .midiPort: return MidiPort().path(in: rect)
         case .milestone: return Milestone().path(in: rect)
         case .milkOff: return MilkOff().path(in: rect)
         case .milk: return Milk().path(in: rect)
@@ -2801,6 +2895,9 @@ extension LucideIcon {
         case .monitor: return Monitor().path(in: rect)
         case .moonStar: return MoonStar().path(in: rect)
         case .moon: return Moon().path(in: rect)
+        case .mopSparkles: return MopSparkles().path(in: rect)
+        case .mop: return Mop().path(in: rect)
+        case .mosque: return Mosque().path(in: rect)
         case .motorbike: return Motorbike().path(in: rect)
         case .mountainSnow: return MountainSnow().path(in: rect)
         case .mountain: return Mountain().path(in: rect)
@@ -2941,12 +3038,14 @@ extension LucideIcon {
         case .plane: return Plane().path(in: rect)
         case .playOff: return PlayOff().path(in: rect)
         case .play: return Play().path(in: rect)
+        case .playingCard: return PlayingCard().path(in: rect)
+        case .playingCardsFan: return PlayingCardsFan().path(in: rect)
+        case .playingCards: return PlayingCards().path(in: rect)
         case .plug2: return Plug2().path(in: rect)
         case .plugZap: return PlugZap().path(in: rect)
         case .plug: return Plug().path(in: rect)
         case .plus: return Plus().path(in: rect)
         case .pocketKnife: return PocketKnife().path(in: rect)
-        case .podcast: return Podcast().path(in: rect)
         case .podium: return Podium().path(in: rect)
         case .pointerOff: return PointerOff().path(in: rect)
         case .pointer: return Pointer().path(in: rect)
@@ -3014,14 +3113,18 @@ extension LucideIcon {
         case .rewind: return Rewind().path(in: rect)
         case .ribbon: return Ribbon().path(in: rect)
         case .road: return Road().path(in: rect)
+        case .robotArm: return RobotArm().path(in: rect)
+        case .robotVacuum: return RobotVacuum().path(in: rect)
         case .rocket: return Rocket().path(in: rect)
         case .rockingChair: return RockingChair().path(in: rect)
         case .rollerCoaster: return RollerCoaster().path(in: rect)
         case .rose: return Rose().path(in: rect)
         case .rotate3d: return Rotate3d().path(in: rect)
+        case .rotateCcwClock: return RotateCcwClock().path(in: rect)
         case .rotateCcwKey: return RotateCcwKey().path(in: rect)
         case .rotateCcwSquare: return RotateCcwSquare().path(in: rect)
         case .rotateCcw: return RotateCcw().path(in: rect)
+        case .rotateCwFadingClock: return RotateCwFadingClock().path(in: rect)
         case .rotateCwSquare: return RotateCwSquare().path(in: rect)
         case .rotateCw: return RotateCw().path(in: rect)
         case .routeOff: return RouteOff().path(in: rect)
@@ -3057,6 +3160,7 @@ extension LucideIcon {
         case .scanLine: return ScanLine().path(in: rect)
         case .scanQrCode: return ScanQrCode().path(in: rect)
         case .scanSearch: return ScanSearch().path(in: rect)
+        case .scanSquare: return ScanSquare().path(in: rect)
         case .scanText: return ScanText().path(in: rect)
         case .scan: return Scan().path(in: rect)
         case .school: return School().path(in: rect)
@@ -3099,6 +3203,8 @@ extension LucideIcon {
         case .shieldCog: return ShieldCog().path(in: rect)
         case .shieldEllipsis: return ShieldEllipsis().path(in: rect)
         case .shieldHalf: return ShieldHalf().path(in: rect)
+        case .shieldKeyhole: return ShieldKeyhole().path(in: rect)
+        case .shieldLock: return ShieldLock().path(in: rect)
         case .shieldMinus: return ShieldMinus().path(in: rect)
         case .shieldOff: return ShieldOff().path(in: rect)
         case .shieldPlus: return ShieldPlus().path(in: rect)
@@ -3106,15 +3212,19 @@ extension LucideIcon {
         case .shieldUser: return ShieldUser().path(in: rect)
         case .shieldX: return ShieldX().path(in: rect)
         case .shield: return Shield().path(in: rect)
+        case .shipCargo: return ShipCargo().path(in: rect)
         case .shipWheel: return ShipWheel().path(in: rect)
         case .ship: return Ship().path(in: rect)
         case .shirt: return Shirt().path(in: rect)
         case .shoppingBag: return ShoppingBag().path(in: rect)
         case .shoppingBasket: return ShoppingBasket().path(in: rect)
+        case .shoppingCartMinus: return ShoppingCartMinus().path(in: rect)
+        case .shoppingCartPlus: return ShoppingCartPlus().path(in: rect)
         case .shoppingCart: return ShoppingCart().path(in: rect)
         case .shovel: return Shovel().path(in: rect)
         case .showerHead: return ShowerHead().path(in: rect)
         case .shredder: return Shredder().path(in: rect)
+        case .shrimpOff: return ShrimpOff().path(in: rect)
         case .shrimp: return Shrimp().path(in: rect)
         case .shrink: return Shrink().path(in: rect)
         case .shrub: return Shrub().path(in: rect)
@@ -3139,8 +3249,6 @@ extension LucideIcon {
         case .smartphoneCharging: return SmartphoneCharging().path(in: rect)
         case .smartphoneNfc: return SmartphoneNfc().path(in: rect)
         case .smartphone: return Smartphone().path(in: rect)
-        case .smilePlus: return SmilePlus().path(in: rect)
-        case .smile: return Smile().path(in: rect)
         case .snail: return Snail().path(in: rect)
         case .snowflake: return Snowflake().path(in: rect)
         case .soapDispenserDroplet: return SoapDispenserDroplet().path(in: rect)
@@ -3197,9 +3305,11 @@ extension LucideIcon {
         case .squareDashedText: return SquareDashedText().path(in: rect)
         case .squareDashedTopSolid: return SquareDashedTopSolid().path(in: rect)
         case .squareDashed: return SquareDashed().path(in: rect)
+        case .squareDimensions: return SquareDimensions().path(in: rect)
         case .squareDivide: return SquareDivide().path(in: rect)
         case .squareDot: return SquareDot().path(in: rect)
         case .squareEqual: return SquareEqual().path(in: rect)
+        case .squareExclamationPoint: return SquareExclamationPoint().path(in: rect)
         case .squareFunction: return SquareFunction().path(in: rect)
         case .squareKanban: return SquareKanban().path(in: rect)
         case .squareLibrary: return SquareLibrary().path(in: rect)
@@ -3207,6 +3317,7 @@ extension LucideIcon {
         case .squareMenu: return SquareMenu().path(in: rect)
         case .squareMinus: return SquareMinus().path(in: rect)
         case .squareMousePointer: return SquareMousePointer().path(in: rect)
+        case .squareOff: return SquareOff().path(in: rect)
         case .squareParkingOff: return SquareParkingOff().path(in: rect)
         case .squareParking: return SquareParking().path(in: rect)
         case .squarePause: return SquarePause().path(in: rect)
@@ -3229,6 +3340,7 @@ extension LucideIcon {
         case .squareStar: return SquareStar().path(in: rect)
         case .squareStop: return SquareStop().path(in: rect)
         case .squareTerminal: return SquareTerminal().path(in: rect)
+        case .squareText: return SquareText().path(in: rect)
         case .squareUserRound: return SquareUserRound().path(in: rect)
         case .squareUser: return SquareUser().path(in: rect)
         case .squareX: return SquareX().path(in: rect)
@@ -3352,12 +3464,12 @@ extension LucideIcon {
         case .toyBrick: return ToyBrick().path(in: rect)
         case .tractor: return Tractor().path(in: rect)
         case .trafficCone: return TrafficCone().path(in: rect)
+        case .trailer: return Trailer().path(in: rect)
         case .trainFrontTunnel: return TrainFrontTunnel().path(in: rect)
         case .trainFront: return TrainFront().path(in: rect)
         case .trainTrack: return TrainTrack().path(in: rect)
         case .tramFront: return TramFront().path(in: rect)
         case .transgender: return Transgender().path(in: rect)
-        case .trash2: return Trash2().path(in: rect)
         case .trash: return Trash().path(in: rect)
         case .treeDeciduous: return TreeDeciduous().path(in: rect)
         case .treePalm: return TreePalm().path(in: rect)
@@ -3395,6 +3507,7 @@ extension LucideIcon {
         case .unlink: return Unlink().path(in: rect)
         case .unplug: return Unplug().path(in: rect)
         case .upload: return Upload().path(in: rect)
+        case .usbCPort: return UsbCPort().path(in: rect)
         case .usb: return Usb().path(in: rect)
         case .userCheck: return UserCheck().path(in: rect)
         case .userCog: return UserCog().path(in: rect)
@@ -3414,6 +3527,7 @@ extension LucideIcon {
         case .userRoundX: return UserRoundX().path(in: rect)
         case .userRound: return UserRound().path(in: rect)
         case .userSearch: return UserSearch().path(in: rect)
+        case .userShield: return UserShield().path(in: rect)
         case .userStar: return UserStar().path(in: rect)
         case .userX: return UserX().path(in: rect)
         case .user: return User().path(in: rect)
@@ -3425,6 +3539,7 @@ extension LucideIcon {
         case .van: return Van().path(in: rect)
         case .variable: return Variable().path(in: rect)
         case .vault: return Vault().path(in: rect)
+        case .vectorPolygon: return VectorPolygon().path(in: rect)
         case .vectorSquare: return VectorSquare().path(in: rect)
         case .vegan: return Vegan().path(in: rect)
         case .venetianMask: return VenetianMask().path(in: rect)
@@ -3436,6 +3551,8 @@ extension LucideIcon {
         case .video: return Video().path(in: rect)
         case .videotape: return Videotape().path(in: rect)
         case .view: return View().path(in: rect)
+        case .virusOff: return VirusOff().path(in: rect)
+        case .virus: return Virus().path(in: rect)
         case .voicemail: return Voicemail().path(in: rect)
         case .volleyball: return Volleyball().path(in: rect)
         case .volume1: return Volume1().path(in: rect)
@@ -3467,6 +3584,7 @@ extension LucideIcon {
         case .weight: return Weight().path(in: rect)
         case .wheatOff: return WheatOff().path(in: rect)
         case .wheat: return Wheat().path(in: rect)
+        case .whistle: return Whistle().path(in: rect)
         case .wholeWord: return WholeWord().path(in: rect)
         case .wifiCog: return WifiCog().path(in: rect)
         case .wifiHigh: return WifiHigh().path(in: rect)

@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct FileImage: Shape {

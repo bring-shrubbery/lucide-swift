@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct BadgeCheck: Shape {
@@ -27,9 +27,9 @@ internal struct BadgeCheck: Shape {
         strokePath2.closeSubpath()
         path.addPath(strokePath2.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath4 = Path()
-        strokePath4.move(to: CGPoint(x: 0.375*width, y: 0.5*height))
-        strokePath4.addLine(to: CGPoint(x: 0.4583333333*width, y: 0.5833333333*height))
-        strokePath4.addLine(to: CGPoint(x: 0.625*width, y: 0.4166666667*height))
+        strokePath4.move(to: CGPoint(x: 0.6666666667*width, y: 0.375*height))
+        strokePath4.addLine(to: CGPoint(x: 0.4375*width, y: 0.6041666667*height))
+        strokePath4.addLine(to: CGPoint(x: 0.3333333333*width, y: 0.5*height))
         path.addPath(strokePath4.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }
