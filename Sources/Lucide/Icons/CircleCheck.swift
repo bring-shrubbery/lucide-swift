@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct CircleCheck: Shape {
@@ -10,9 +10,9 @@ internal struct CircleCheck: Shape {
         strokePath1.addEllipse(in: CGRect(x: 0.0833333333*width, y: 0.0833333333*height, width: 0.8333333333*width, height: 0.8333333333*height))
         path.addPath(strokePath1.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath3 = Path()
-        strokePath3.move(to: CGPoint(x: 0.375*width, y: 0.5*height))
-        strokePath3.addLine(to: CGPoint(x: 0.4583333333*width, y: 0.5833333333*height))
-        strokePath3.addLine(to: CGPoint(x: 0.625*width, y: 0.4166666667*height))
+        strokePath3.move(to: CGPoint(x: 0.6666666667*width, y: 0.375*height))
+        strokePath3.addLine(to: CGPoint(x: 0.4375*width, y: 0.6041666667*height))
+        strokePath3.addLine(to: CGPoint(x: 0.3333333333*width, y: 0.5*height))
         path.addPath(strokePath3.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }

@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.41.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Beef: Shape {
@@ -18,8 +18,8 @@ internal struct Beef: Shape {
         path.addPath(strokePath2.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath4 = Path()
         strokePath4.move(to: CGPoint(x: 0.7708333333*width, y: 0.25*height))
-        strokePath4.addLine(to: CGPoint(x: 0.8620833333*width, y: 0.4375*height))
-        strokePath4.addCurve(to: CGPoint(x: 0.7666666667*width, y: 0.7375*height), control1: CGPoint(x: 0.8978973589*width, y: 0.5476146448*height), control2: CGPoint(x: 0.8595108611*width, y: 0.6683058168*height))
+        strokePath4.addLine(to: CGPoint(x: 0.8439166667*width, y: 0.3958333333*height))
+        strokePath4.addCurve(to: CGPoint(x: 0.7666666667*width, y: 0.7375*height), control1: CGPoint(x: 0.9055626875*width, y: 0.5132395709*height), control2: CGPoint(x: 0.872825037*width, y: 0.658033926*height))
         strokePath4.addCurve(to: CGPoint(x: 0.2916666667*width, y: 0.9166666667*height), control1: CGPoint(x: 0.6416666667*width, y: 0.8416666667*height), control2: CGPoint(x: 0.4583333333*width, y: 0.9166666667*height))
         strokePath4.addCurve(to: CGPoint(x: 0.18*width, y: 0.8475*height), control1: CGPoint(x: 0.2443542053*width, y: 0.916601963*height), control2: CGPoint(x: 0.2011328749*width, y: 0.889830542*height))
         strokePath4.addLine(to: CGPoint(x: 0.1*width, y: 0.6875*height))
