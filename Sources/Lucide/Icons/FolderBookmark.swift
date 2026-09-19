@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.47.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct FolderBookmark: Shape {
@@ -8,9 +8,14 @@ internal struct FolderBookmark: Shape {
         let height = rect.size.height
         var strokePath2 = Path()
         strokePath2.move(to: CGPoint(x: 0.5*width, y: 0.25*height))
-        strokePath2.addLine(to: CGPoint(x: 0.5*width, y: 0.5833333333*height))
-        strokePath2.addLine(to: CGPoint(x: 0.625*width, y: 0.4583333333*height))
-        strokePath2.addLine(to: CGPoint(x: 0.75*width, y: 0.5833333333*height))
+        strokePath2.addLine(to: CGPoint(x: 0.5*width, y: 0.5729583333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.5059157892*width, y: 0.5823710622*height), control1: CGPoint(x: 0.4999928204*width, y: 0.5769738879*height), control2: CGPoint(x: 0.5022944197*width, y: 0.580636008*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.5169583333*width, y: 0.5810833333*height), control1: CGPoint(x: 0.5095371587*width, y: 0.5841061164*height), control2: CGPoint(x: 0.5138333754*width, y: 0.5836051121*height))
+        strokePath2.addLine(to: CGPoint(x: 0.6119583333*width, y: 0.5046666667*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.6380833333*width, y: 0.5046666667*height), control1: CGPoint(x: 0.6195849617*width, y: 0.4985283126*height), control2: CGPoint(x: 0.630456705*width, y: 0.4985283126*height))
+        strokePath2.addLine(to: CGPoint(x: 0.7330833333*width, y: 0.5810833333*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.7440932147*width, y: 0.5823332871*height), control1: CGPoint(x: 0.7362089284*width, y: 0.5835792583*height), control2: CGPoint(x: 0.7404876526*width, y: 0.5840650226*height))
+        strokePath2.addCurve(to: CGPoint(x: 0.75*width, y: 0.5729583333*height), control1: CGPoint(x: 0.7476987767*width, y: 0.5806015516*height), control2: CGPoint(x: 0.7499943061*width, y: 0.5769582025*height))
         strokePath2.addLine(to: CGPoint(x: 0.75*width, y: 0.25*height))
         path.addPath(strokePath2.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath4 = Path()

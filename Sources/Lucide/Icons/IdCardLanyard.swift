@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.47.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct IdCardLanyard: Shape {
@@ -24,9 +24,9 @@ internal struct IdCardLanyard: Shape {
         strokePath4.addLine(to: CGPoint(x: 0.4166666667*width, y: 0.1666666667*height))
         path.addPath(strokePath4.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath6 = Path()
-        strokePath6.move(to: CGPoint(x: 0.704125*width, y: 0.9166666667*height))
-        strokePath6.addCurve(to: CGPoint(x: 0.4999791667*width, y: 0.749893609*height), control1: CGPoint(x: 0.6843677542*width, y: 0.8196182389*height), control2: CGPoint(x: 0.5990182806*width, y: 0.749893609*height))
-        strokePath6.addCurve(to: CGPoint(x: 0.2958333333*width, y: 0.9166666667*height), control1: CGPoint(x: 0.4009400528*width, y: 0.749893609*height), control2: CGPoint(x: 0.3155905791*width, y: 0.8196182389*height))
+        strokePath6.move(to: CGPoint(x: 0.6666666667*width, y: 0.9166666667*height))
+        strokePath6.addCurve(to: CGPoint(x: 0.5*width, y: 0.75*height), control1: CGPoint(x: 0.6666666667*width, y: 0.8246192084*height), control2: CGPoint(x: 0.5920474583*width, y: 0.75*height))
+        strokePath6.addCurve(to: CGPoint(x: 0.3333333333*width, y: 0.9166666667*height), control1: CGPoint(x: 0.4079525417*width, y: 0.75*height), control2: CGPoint(x: 0.3333333333*width, y: 0.8246192084*height))
         path.addPath(strokePath6.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath8 = Path()
         strokePath8.move(to: CGPoint(x: 0.375*width, y: 0.0833333333*height))

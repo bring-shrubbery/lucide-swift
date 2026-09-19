@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.25.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.47.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Broccoli: Shape {
@@ -34,9 +34,9 @@ internal struct Broccoli: Shape {
         strokePath8.addCurve(to: CGPoint(x: 0.8133333333*width, y: 0.3041666667*height), control1: CGPoint(x: 0.8397443558*width, y: 0.2218171524*height), control2: CGPoint(x: 0.8416480663*width, y: 0.2711033102*height))
         strokePath8.addCurve(to: CGPoint(x: 0.9148988958*width, y: 0.4340562445*height), control1: CGPoint(x: 0.8677341093*width, y: 0.3265112463*height), control2: CGPoint(x: 0.9063316756*width, y: 0.3758726781*height))
         strokePath8.addCurve(to: CGPoint(x: 0.8550833333*width, y: 0.5877083333*height), control1: CGPoint(x: 0.923466116*width, y: 0.492239811*height), control2: CGPoint(x: 0.9007346401*width, y: 0.5506316175*height))
-        strokePath8.addCurve(to: CGPoint(x: 0.8338491434*width, y: 0.776367994*height), control1: CGPoint(x: 0.8880142866*width, y: 0.6488747639*height), control2: CGPoint(x: 0.8795528577*width, y: 0.7240521225*height))
-        strokePath8.addCurve(to: CGPoint(x: 0.6497505363*width, y: 0.8227475288*height), control1: CGPoint(x: 0.7881454291*width, y: 0.8286838655*height), control2: CGPoint(x: 0.7147855654*width, y: 0.8471652457*height))
-        strokePath8.addCurve(to: CGPoint(x: 0.5416666667*width, y: 0.6666666667*height), control1: CGPoint(x: 0.5847155072*width, y: 0.7983298118*height), control2: CGPoint(x: 0.5416460996*width, y: 0.7361344973*height))
+        strokePath8.addCurve(to: CGPoint(x: 0.8310338607*width, y: 0.7795378229*height), control1: CGPoint(x: 0.8887611189*width, y: 0.6502436623*height), control2: CGPoint(x: 0.8791067238*width, y: 0.7272514915*height))
+        strokePath8.addCurve(to: CGPoint(x: 0.6418952634*width, y: 0.8195818135*height), control1: CGPoint(x: 0.7829609976*width, y: 0.8318241542*height), control2: CGPoint(x: 0.7070333974*width, y: 0.8478993718*height))
+        strokePath8.addCurve(to: CGPoint(x: 0.5421666667*width, y: 0.6539583333*height), control1: CGPoint(x: 0.5767571294*width, y: 0.7912642552*height), control2: CGPoint(x: 0.5367221861*width, y: 0.7247765389*height))
         path.addPath(strokePath8.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }
