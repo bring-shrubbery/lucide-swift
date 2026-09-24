@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.47.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.48.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct CardSim: Shape {
@@ -28,7 +28,7 @@ internal struct CardSim: Shape {
         strokePath6.addLine(to: CGPoint(x: 0.6666666667*width, y: 0.5833333333*height))
         path.addPath(strokePath6.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath7 = Path()
-        strokePath7.addRoundedRect(in: CGRect(x: 0.3333333333*width, y: 0.4166666667*height, width: 0.3333333333*width, height: 0.3333333333*height), cornerSize: CGSize(width: 0.0416666667*width, height: 0.0416666667*height))
+        strokePath7.addRoundedRect(in: CGRect(x: 0.3333333333*width, y: 0.4166666667*height, width: 0.3333333333*width, height: 0.3333333333*height), cornerSize: CGSize(width: 0.0833333333*width, height: 0.0833333333*height))
         path.addPath(strokePath7.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         return path
     }
