@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.47.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.48.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Refrigerator: Shape {

@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.47.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.48.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -244,6 +244,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case briefcaseBusiness = "briefcase-business"
     case briefcaseConveyorBelt = "briefcase-conveyor-belt"
     case briefcaseMedical = "briefcase-medical"
+    case briefcasePlus = "briefcase-plus"
     case briefcase = "briefcase"
     case bringToFront = "bring-to-front"
     case broccoli = "broccoli"
@@ -866,6 +867,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case hotel = "hotel"
     case hourglassCog = "hourglass-cog"
     case hourglass = "hourglass"
+    case houseCog = "house-cog"
     case houseHeart = "house-heart"
     case housePlug = "house-plug"
     case housePlus = "house-plus"
@@ -949,7 +951,10 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case lightbulbOff = "lightbulb-off"
     case lightbulb = "lightbulb"
     case lighthouse = "lighthouse"
+    case lineDotBottomVertical = "line-dot-bottom-vertical"
+    case lineDotLeftHorizontal = "line-dot-left-horizontal"
     case lineDotRightHorizontal = "line-dot-right-horizontal"
+    case lineDotTopVertical = "line-dot-top-vertical"
     case lineSquiggle = "line-squiggle"
     case lineStyle = "line-style"
     case link2Off = "link-2-off"
@@ -1553,6 +1558,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case squareScissors = "square-scissors"
     case squareSigma = "square-sigma"
     case squareSlash = "square-slash"
+    case squareSparkles = "square-sparkles"
     case squareSplitHorizontal = "square-split-horizontal"
     case squareSplitVertical = "square-split-vertical"
     case squareSquare = "square-square"
@@ -2097,6 +2103,7 @@ extension LucideIcon {
         case .briefcaseBusiness: return BriefcaseBusiness().path(in: rect)
         case .briefcaseConveyorBelt: return BriefcaseConveyorBelt().path(in: rect)
         case .briefcaseMedical: return BriefcaseMedical().path(in: rect)
+        case .briefcasePlus: return BriefcasePlus().path(in: rect)
         case .briefcase: return Briefcase().path(in: rect)
         case .bringToFront: return BringToFront().path(in: rect)
         case .broccoli: return Broccoli().path(in: rect)
@@ -2719,6 +2726,7 @@ extension LucideIcon {
         case .hotel: return Hotel().path(in: rect)
         case .hourglassCog: return HourglassCog().path(in: rect)
         case .hourglass: return Hourglass().path(in: rect)
+        case .houseCog: return HouseCog().path(in: rect)
         case .houseHeart: return HouseHeart().path(in: rect)
         case .housePlug: return HousePlug().path(in: rect)
         case .housePlus: return HousePlus().path(in: rect)
@@ -2802,7 +2810,10 @@ extension LucideIcon {
         case .lightbulbOff: return LightbulbOff().path(in: rect)
         case .lightbulb: return Lightbulb().path(in: rect)
         case .lighthouse: return Lighthouse().path(in: rect)
+        case .lineDotBottomVertical: return LineDotBottomVertical().path(in: rect)
+        case .lineDotLeftHorizontal: return LineDotLeftHorizontal().path(in: rect)
         case .lineDotRightHorizontal: return LineDotRightHorizontal().path(in: rect)
+        case .lineDotTopVertical: return LineDotTopVertical().path(in: rect)
         case .lineSquiggle: return LineSquiggle().path(in: rect)
         case .lineStyle: return LineStyle().path(in: rect)
         case .link2Off: return Link2Off().path(in: rect)
@@ -3406,6 +3417,7 @@ extension LucideIcon {
         case .squareScissors: return SquareScissors().path(in: rect)
         case .squareSigma: return SquareSigma().path(in: rect)
         case .squareSlash: return SquareSlash().path(in: rect)
+        case .squareSparkles: return SquareSparkles().path(in: rect)
         case .squareSplitHorizontal: return SquareSplitHorizontal().path(in: rect)
         case .squareSplitVertical: return SquareSplitVertical().path(in: rect)
         case .squareSquare: return SquareSquare().path(in: rect)
