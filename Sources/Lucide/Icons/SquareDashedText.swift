@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.48.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.49.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct SquareDashedText: Shape {

@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.48.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.49.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -133,6 +133,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case ban = "ban"
     case banana = "banana"
     case bandage = "bandage"
+    case bangladeshiTaka = "bangladeshi-taka"
     case banknoteArrowDown = "banknote-arrow-down"
     case banknoteArrowUp = "banknote-arrow-up"
     case banknoteCheck = "banknote-check"
@@ -944,6 +945,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case lectern = "lectern"
     case lensConcave = "lens-concave"
     case lensConvex = "lens-convex"
+    case letters = "letters"
     case libraryBig = "library-big"
     case library = "library"
     case lifeBuoy = "life-buoy"
@@ -1275,6 +1277,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case powerOff = "power-off"
     case power = "power"
     case presentation = "presentation"
+    case printer3d = "printer-3d"
     case printerCheck = "printer-check"
     case printerX = "printer-x"
     case printer = "printer"
@@ -1992,6 +1995,7 @@ extension LucideIcon {
         case .ban: return Ban().path(in: rect)
         case .banana: return Banana().path(in: rect)
         case .bandage: return Bandage().path(in: rect)
+        case .bangladeshiTaka: return BangladeshiTaka().path(in: rect)
         case .banknoteArrowDown: return BanknoteArrowDown().path(in: rect)
         case .banknoteArrowUp: return BanknoteArrowUp().path(in: rect)
         case .banknoteCheck: return BanknoteCheck().path(in: rect)
@@ -2803,6 +2807,7 @@ extension LucideIcon {
         case .lectern: return Lectern().path(in: rect)
         case .lensConcave: return LensConcave().path(in: rect)
         case .lensConvex: return LensConvex().path(in: rect)
+        case .letters: return Letters().path(in: rect)
         case .libraryBig: return LibraryBig().path(in: rect)
         case .library: return Library().path(in: rect)
         case .lifeBuoy: return LifeBuoy().path(in: rect)
@@ -3134,6 +3139,7 @@ extension LucideIcon {
         case .powerOff: return PowerOff().path(in: rect)
         case .power: return Power().path(in: rect)
         case .presentation: return Presentation().path(in: rect)
+        case .printer3d: return Printer3d().path(in: rect)
         case .printerCheck: return PrinterCheck().path(in: rect)
         case .printerX: return PrinterX().path(in: rect)
         case .printer: return Printer().path(in: rect)
