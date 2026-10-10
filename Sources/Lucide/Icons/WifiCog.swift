@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.49.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.54.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct WifiCog: Shape {
@@ -31,8 +31,8 @@ internal struct WifiCog: Shape {
         strokePath12.addLine(to: CGPoint(x: 0.7978333333*width, y: 0.8655*height))
         path.addPath(strokePath12.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath14 = Path()
-        strokePath14.move(to: CGPoint(x: 0.0833333333*width, y: 0.3258333333*height))
-        strokePath14.addCurve(to: CGPoint(x: 0.9166666667*width, y: 0.3258333333*height), control1: CGPoint(x: 0.3205838795*width, y: 0.1136299937*height), control2: CGPoint(x: 0.6794161205*width, y: 0.1136299937*height))
+        strokePath14.move(to: CGPoint(x: 0.0833333333*width, y: 0.3675*height))
+        strokePath14.addCurve(to: CGPoint(x: 0.9166666667*width, y: 0.3675*height), control1: CGPoint(x: 0.3205838795*width, y: 0.1552966604*height), control2: CGPoint(x: 0.6794161205*width, y: 0.1552966604*height))
         path.addPath(strokePath14.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath16 = Path()
         strokePath16.move(to: CGPoint(x: 0.8655*width, y: 0.7021666667*height))
@@ -43,12 +43,12 @@ internal struct WifiCog: Shape {
         strokePath18.addLine(to: CGPoint(x: 0.904*width, y: 0.8137916667*height))
         path.addPath(strokePath18.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath20 = Path()
-        strokePath20.move(to: CGPoint(x: 0.2083333333*width, y: 0.4940833333*height))
-        strokePath20.addCurve(to: CGPoint(x: 0.6875*width, y: 0.4197083333*height), control1: CGPoint(x: 0.3356960133*width, y: 0.3693337824*height), control2: CGPoint(x: 0.5283143679*width, y: 0.3394360639*height))
+        strokePath20.move(to: CGPoint(x: 0.2083333333*width, y: 0.5357916667*height))
+        strokePath20.addCurve(to: CGPoint(x: 0.6325*width, y: 0.4382083333*height), control1: CGPoint(x: 0.3201470608*width, y: 0.4261334399*height), control2: CGPoint(x: 0.4840078036*width, y: 0.3884358113*height))
         path.addPath(strokePath20.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath22 = Path()
-        strokePath22.move(to: CGPoint(x: 0.3541666667*width, y: 0.642875*height))
-        strokePath22.addCurve(to: CGPoint(x: 0.4547083333*width, y: 0.5882916667*height), control1: CGPoint(x: 0.3819304797*width, y: 0.6156549567*height), control2: CGPoint(x: 0.4167576043*width, y: 0.5967475662*height))
+        strokePath22.move(to: CGPoint(x: 0.3541666667*width, y: 0.6845416667*height))
+        strokePath22.addCurve(to: CGPoint(x: 0.4374166667*width, y: 0.6345416667*height), control1: CGPoint(x: 0.3775905476*width, y: 0.6615497998*height), control2: CGPoint(x: 0.4061154309*width, y: 0.6444177378*height))
         path.addPath(strokePath22.strokedPath(StrokeStyle(lineWidth: 0.0833333333*width, lineCap: .round, lineJoin: .round, miterLimit: 4)))
         var strokePath23 = Path()
         strokePath23.addEllipse(in: CGRect(x: 0.625*width, y: 0.625*height, width: 0.25*width, height: 0.25*height))
