@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.57.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.58.0 — DO NOT EDIT
 import SwiftUI
 
 public enum LucideIcon: String, CaseIterable, Sendable {
@@ -322,6 +322,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case cat = "cat"
     case cctvOff = "cctv-off"
     case cctv = "cctv"
+    case certificate = "certificate"
     case chartArea = "chart-area"
     case chartBarBig = "chart-bar-big"
     case chartBarDecreasing = "chart-bar-decreasing"
@@ -610,6 +611,8 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case eggFried = "egg-fried"
     case eggOff = "egg-off"
     case egg = "egg"
+    case eighthNote = "eighth-note"
+    case eighthNotes = "eighth-notes"
     case eject = "eject"
     case ellipse = "ellipse"
     case ellipsisVertical = "ellipsis-vertical"
@@ -829,6 +832,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case group = "group"
     case guitarElectric = "guitar-electric"
     case guitar = "guitar"
+    case halfNote = "half-note"
     case ham = "ham"
     case hamburger = "hamburger"
     case hammer = "hammer"
@@ -1160,10 +1164,6 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case moveUp = "move-up"
     case moveVertical = "move-vertical"
     case move = "move"
-    case music2 = "music-2"
-    case music3 = "music-3"
-    case music4 = "music-4"
-    case music = "music"
     case navigation2Off = "navigation-2-off"
     case navigation2 = "navigation-2"
     case navigationOff = "navigation-off"
@@ -1488,6 +1488,7 @@ public enum LucideIcon: String, CaseIterable, Sendable {
     case signpostBig = "signpost-big"
     case signpost = "signpost"
     case siren = "siren"
+    case sixteenthNotes = "sixteenth-notes"
     case skipBack = "skip-back"
     case skipForward = "skip-forward"
     case skull = "skull"
@@ -2217,6 +2218,7 @@ extension LucideIcon {
         case .cat: return Cat().path(in: rect)
         case .cctvOff: return CctvOff().path(in: rect)
         case .cctv: return Cctv().path(in: rect)
+        case .certificate: return Certificate().path(in: rect)
         case .chartArea: return ChartArea().path(in: rect)
         case .chartBarBig: return ChartBarBig().path(in: rect)
         case .chartBarDecreasing: return ChartBarDecreasing().path(in: rect)
@@ -2505,6 +2507,8 @@ extension LucideIcon {
         case .eggFried: return EggFried().path(in: rect)
         case .eggOff: return EggOff().path(in: rect)
         case .egg: return Egg().path(in: rect)
+        case .eighthNote: return EighthNote().path(in: rect)
+        case .eighthNotes: return EighthNotes().path(in: rect)
         case .eject: return Eject().path(in: rect)
         case .ellipse: return Ellipse().path(in: rect)
         case .ellipsisVertical: return EllipsisVertical().path(in: rect)
@@ -2724,6 +2728,7 @@ extension LucideIcon {
         case .group: return Group().path(in: rect)
         case .guitarElectric: return GuitarElectric().path(in: rect)
         case .guitar: return Guitar().path(in: rect)
+        case .halfNote: return HalfNote().path(in: rect)
         case .ham: return Ham().path(in: rect)
         case .hamburger: return Hamburger().path(in: rect)
         case .hammer: return Hammer().path(in: rect)
@@ -3055,10 +3060,6 @@ extension LucideIcon {
         case .moveUp: return MoveUp().path(in: rect)
         case .moveVertical: return MoveVertical().path(in: rect)
         case .move: return Move().path(in: rect)
-        case .music2: return Music2().path(in: rect)
-        case .music3: return Music3().path(in: rect)
-        case .music4: return Music4().path(in: rect)
-        case .music: return Music().path(in: rect)
         case .navigation2Off: return Navigation2Off().path(in: rect)
         case .navigation2: return Navigation2().path(in: rect)
         case .navigationOff: return NavigationOff().path(in: rect)
@@ -3383,6 +3384,7 @@ extension LucideIcon {
         case .signpostBig: return SignpostBig().path(in: rect)
         case .signpost: return Signpost().path(in: rect)
         case .siren: return Siren().path(in: rect)
+        case .sixteenthNotes: return SixteenthNotes().path(in: rect)
         case .skipBack: return SkipBack().path(in: rect)
         case .skipForward: return SkipForward().path(in: rect)
         case .skull: return Skull().path(in: rect)
