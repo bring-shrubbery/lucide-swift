@@ -1,4 +1,4 @@
-// GENERATED FROM lucide-static@1.57.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.58.0 — DO NOT EDIT
 import SwiftUI
 
 internal struct Volume1: Shape {
