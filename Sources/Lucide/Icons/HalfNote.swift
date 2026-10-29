@@ -1,7 +1,7 @@
-// GENERATED FROM lucide-static@1.57.0 — DO NOT EDIT
+// GENERATED FROM lucide-static@1.63.0 — DO NOT EDIT
 import SwiftUI
 
-internal struct Music3: Shape {
+internal struct HalfNote: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let width = rect.size.width
